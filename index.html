@@ -525,6 +525,97 @@
         </section>`;
     }
 
+    // Politique de confidentialité
+    function viewPrivacy(){
+      $('#page').innerHTML = `
+        <section class="page article">
+          <div class="hero">
+            <h2>Politique de confidentialité</h2>
+            <div class="meta">LIBTECH · Répertoire des technologies accessibles</div>
+          </div>
+
+          <div class="section">
+            <h3>1. Objet et champ d’application</h3>
+            <p>La présente politique explique comment nous traitons les données à caractère personnel dans le cadre du site LIBTECH
+            (<a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a>).</p>
+          </div>
+
+          <div class="section">
+            <h3>2. Responsable du traitement &amp; contact</h3>
+            <p><strong>Éditeur / Responsable de publication :</strong> LIBTECH – Maël JEREZ<br>
+            <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br>
+            <strong>Contact :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a></p>
+          </div>
+
+          <div class="section">
+            <h3>3. Données que nous traitons</h3>
+            <ul>
+              <li><strong>Données de contact</strong> (si vous nous écrivez) : adresse e-mail, contenu du message.</li>
+              <li><strong>Préférences d’affichage locales</strong> : langue, police (stockées sur votre appareil via <code>localStorage</code>, non transmises au serveur).</li>
+              <li><strong>Contenus répertoriés</strong> : informations publiques provenant d’un fichier CSV/Google Sheets publié (technologies, descriptions, liens, images). Ces contenus ne sont pas des « données personnelles » des visiteurs.</li>
+              <li><strong>Journaux techniques</strong> (côté hébergeur) : éléments nécessaires à la sécurité et au bon fonctionnement du site (voir § 9).</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>4. Finalités et bases légales</h3>
+            <ul>
+              <li><strong>Répondre à vos messages</strong> (intérêt légitime, art. 6-1-f RGPD).</li>
+              <li><strong>Fournir le service</strong> : affichage du répertoire et de ses filtres (intérêt légitime / exécution d’un service).</li>
+              <li><strong>Sécurité et maintenance</strong> : prévention d’abus, diagnostic d’incidents (intérêt légitime).</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>5. Destinataires</h3>
+            <p>Les données ne sont pas cédées à des tiers à des fins commerciales. Elles peuvent être accessibles, si nécessaire,
+            aux personnes habilitées intervenant pour l’exploitation, l’hébergement ou la maintenance du site, strictement pour ces finalités.</p>
+          </div>
+
+          <div class="section">
+            <h3>6. Durées de conservation</h3>
+            <ul>
+              <li><strong>Messages reçus</strong> : le temps de traiter la demande puis archivage limité au strict nécessaire.</li>
+              <li><strong>Préférences locales</strong> (langue/police) : conservées sur votre appareil tant que vous ne les supprimez pas.</li>
+              <li><strong>Journaux techniques</strong> : durée courte, limitée aux besoins de sécurité/diagnostic de l’hébergeur.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>7. Vos droits</h3>
+            <p>Vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et du droit à la portabilité,
+            dans les limites légales. Pour exercer vos droits, écrivez-nous à <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+            Vous pouvez aussi saisir votre autorité de contrôle compétente.</p>
+          </div>
+
+          <div class="section">
+            <h3>8. Cookies et traceurs</h3>
+            <p>Nous n’utilisons pas de cookies de suivi ni d’outils d’analytics déposant des traceurs. Le site stocke uniquement des
+            <strong>préférences d’interface</strong> (langue, police) dans votre navigateur via <code>localStorage</code>, ce qui ne transmet aucune information au serveur.</p>
+          </div>
+
+          <div class="section">
+            <h3>9. Hébergement et sécurité</h3>
+            <p><strong>Hébergeur :</strong> CREMI – Université de Bordeaux (351 Cours de la Libération, 33400 Talence, France). L’hébergeur peut
+            conserver des journaux techniques pour des raisons de sécurité et de continuité de service.</p>
+          </div>
+
+          <div class="section">
+            <h3>10. Transferts hors UE</h3>
+            <p>Le site est hébergé au sein de l’UE. Les contenus du répertoire peuvent référencer des services tiers (liens, images)
+            susceptibles d’être hébergés hors UE : dans ce cas, leur consultation est soumise aux politiques de ces services tiers.</p>
+          </div>
+
+          <div class="section">
+            <h3>11. Modifications</h3>
+            <p>La présente politique peut être mise à jour pour refléter des évolutions légales ou techniques. La version en ligne fait foi.</p>
+          </div>
+
+          <div class="section">
+            <p class="meta">Dernière mise à jour : <time datetime="2025-11-12">12/11/2025</time></p>
+          </div>
+        </section>`;
+    }
     /* ============================================================
        ROUTER + GLOBAL WIDGETS
        ============================================================ */
@@ -557,7 +648,7 @@
       if(h==="#/a-propos"){ viewAbout(); return; }
       if(h==="#/plan-du-site"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Plan du site</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
       if(h==="#/mentions-legales"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Mentions légales</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
-      if(h==="#/confidentialite"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Politique de confidentialité</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
+      if(h==="#/confidentialite"){ viewPrivacy(); return; }
       viewHome();
     }
     window.addEventListener('hashchange', route);
