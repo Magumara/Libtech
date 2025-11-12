@@ -8,9 +8,9 @@
   <link rel="icon" href="data:,"/>
 
   <style>
-    /* ===========================
-       DESIGN TOKENS / LAYOUT
-       =========================== */
+    /* ===============================
+       VARIABLES & MISE EN PAGE GLOBALES
+       =============================== */
     :root{
       --bg:#f7f8fb;--panel:#ffffff;--ink:#0f172a;--muted:#667085;--accent:#2563eb;--border:#e3e6ef;
       --shadow:0 16px 48px rgba(15,23,42,.08);
@@ -25,38 +25,52 @@
     img{max-width:100%;display:block}
     input,select,button{font:inherit}
 
-    /* Buttons / Inputs */
+    /* ===============================
+       BOUTONS & CHAMPS
+       =============================== */
     .btn{display:inline-flex;align-items:center;gap:8px;min-height:var(--tap);padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius);background:#f4f7fb;color:var(--ink);cursor:pointer}
     .btn:hover{border-color:#cdd4e2}
 
-    /* Sticky header across the app */
+    /* ===============================
+       EN-TÊTE FIXE (VISIBLE PARTOUT)
+       =============================== */
     header{position:sticky;top:0;height:var(--header);display:flex;align-items:center;background:color-mix(in oklab, var(--panel) 92%, transparent);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--border);z-index:50}
     .wrap{max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--space);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:8px;font-weight:800}
     .brand img{height:26px;width:auto}
 
-    /* Top navigation */
+    /* ===============================
+       NAVIGATION PRINCIPALE (ONGLETS)
+       =============================== */
     nav.topnav{display:flex;gap:8px;flex-wrap:wrap}
     .navlink{padding:10px 12px;border-radius:12px;min-height:var(--tap);display:inline-flex;align-items:center}
     .navlink[aria-current="page"]{background:#eaf1ff;color:#2563eb}
     .spacer{flex:1}
 
-    /* Header tools (global search, lang, font) */
+    /* ===============================
+       OUTILS D’EN-TÊTE (RECHERCHE, LANGUE, POLICE)
+       =============================== */
     .toolbar{display:flex;gap:8px;align-items:center}
     .select,.toolbar input{padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--panel);min-height:var(--tap);color:var(--ink)}
 
-    /* Footer */
+    /* ===============================
+       PIED DE PAGE
+       =============================== */
     footer{margin-top:40px;border-top:1px solid var(--border);padding:20px 0 calc(20px + var(--safe));background:var(--panel)}
     .footwrap{max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--space);color:var(--muted)}
     .footlinks{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:8px}
     .footlinks a{text-decoration:underline}
     .copyright{font-size:var(--fs-sm)}
 
-    /* Pages */
+    /* ===============================
+       CONTENEURS DE PAGES
+       =============================== */
     main{min-height:60vh}
     .page{max-width:var(--maxw);margin:18px auto;padding:0 var(--space)}
 
-    /* Directory: toolbar + layout */
+    /* ===============================
+       RÉPERTOIRE : BARRE HAUTE & DISPOSITION
+       =============================== */
     .repo-topbar{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
     .pill{font-size:12px;padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);min-height:28px;display:inline-flex;align-items:center}
     .repo-layout{display:grid;grid-template-columns:var(--sidebar) 1fr;gap:16px}
@@ -67,14 +81,18 @@
     .facet h4{margin:0 0 8px;font-size:var(--fs-sm);color:#475569}
     .facet .opt{display:flex;align-items:center;gap:10px;margin:8px 0;min-height:36px;line-height:1.3;word-break:break-word}
 
-    /* Cards grid */
+    /* ===============================
+       GRILLE DE CARTES (LISTE DES ÉLÉMENTS)
+       =============================== */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
     .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(15,23,42,.05);cursor:pointer;min-height:120px}
     .card:hover{box-shadow:0 14px 36px rgba(37,99,235,.12);border-color:#c7d2fe}
     .card .title{font-style:italic;font-weight:800}
     .card .desc{color:var(--muted);font-size:var(--fs-sm);margin-top:6px}
 
-    /* Detail “sheet” layout */
+    /* ===============================
+       FICHE DÉTAILLÉE (MISE EN PAGE)
+       =============================== */
     .article{background:var(--panel);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
     .hero{padding:22px 22px 10px;border-bottom:1px solid var(--border)}
     .hero h2{margin:0;font-size:clamp(22px,3.2vw,28px);line-height:1.15;font-weight:800}
@@ -93,10 +111,13 @@
     .sheet .imgcap{color:#a0a7b2;font-size:12px;text-align:right;margin-top:6px}
     .sheet dl{margin:0}.sheet dt{float:left;clear:left;width:120px;color:#5b6676}.sheet dd{margin-left:130px}.sheet dd a{color:#2563eb;text-decoration:underline}
 
-    /* Hide header search on home only */
+    /* ===============================
+       COMPORTEMENT SPÉCIFIQUE À L’ACCUEIL
+       - Masquer la recherche du header uniquement sur l’accueil
+       - Grande barre de recherche centrée
+       =============================== */
     body.home #q{ display:none !important }
 
-    /* Home: big centered search */
     .home-hero{display:grid;place-items:center;min-height:58vh;padding:24px}
     .home-search{max-width:720px;width:100%;text-align:center}
     .home-search h2{font-size:clamp(24px,3.5vw,36px);margin:0 0 12px;font-weight:800}
@@ -105,8 +126,9 @@
     .home-search input[type="search"]{flex:1;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:#fff;font-size:16px}
     .home-search button{padding:14px 16px;border-radius:14px}
 
-
-    /* Collapsible filters in directory */
+    /* ===============================
+       RÉPERTOIRE : FILTRES REPLIABLES
+       =============================== */
     .filters-toggle{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:#eef2f7;cursor:pointer;margin-bottom:12px;transition:background .2s ease}
     .filters-toggle:hover{background:#e2e8f0}
     .repo-layout.with-filters{grid-template-columns:var(--sidebar) 1fr}
@@ -114,11 +136,13 @@
     .sidebar.hidden{display:none}
   </style>
 
-  <!-- PapaParse (CSV) -->
+  <!-- Dépendance : PapaParse pour lire le CSV public -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
 <body>
-  <!-- ============ HEADER (always visible) ============ -->
+  <!-- ==========================
+       EN-TÊTE (logo, onglets, outils)
+       ========================== -->
   <header>
     <div class="wrap">
       <a class="brand" href="#/">
@@ -132,14 +156,14 @@
       </nav>
       <div class="spacer"></div>
       <div class="toolbar">
-        <!-- Global search (used on directory; hidden on home via body.home) -->
+        <!-- Recherche globale (utilisée dans le répertoire ; masquée sur l’accueil) -->
         <input id="q" class="select" placeholder="Rechercher…" aria-label="Recherche globale"/>
-        <!-- Language selector kept for future use -->
+        <!-- Sélecteur de langue (actuellement inactif par choix) -->
         <select id="lang" class="select" title="Langue" aria-label="Langue">
           <option value="fr" selected>Français</option>
           <option value="en">English</option>
         </select>
-        <!-- Font selector (live demo) -->
+        <!-- Démonstration : changement de police -->
         <select id="font" class="select" title="Police" aria-label="Police">
           <option value="system" selected>Système</option>
           <option value="serif">Serif</option>
@@ -149,10 +173,12 @@
     </div>
   </header>
 
-  <!-- ============ CONTENT ============ -->
+  <!-- Zone d’affichage des vues -->
   <main><div id="page" class="page"></div></main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ==========================
+       PIED DE PAGE (liens utiles)
+       ========================== -->
   <footer>
     <div class="footwrap">
       <div class="footlinks">
@@ -168,14 +194,13 @@
   <script>
   (() => {
     /* ============================================================
-       DATA SOURCE
-       - CSV published from Google Sheets (public URL)
-       - If you change the sheet: keep same headers or update COL mapping
+       SOURCE DES DONNÉES (CSV PUBLIC GOOGLE SHEETS)
+       - Si vous changez de feuille : garder les intitulés ou ajuster le mapping COL
        ============================================================ */
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbhCHyINYJMEBbnl_SGBujZOOUB0rw4WnXWirV9dUF_PaktI2oVM0ubMRK6B_Xw/pub?output=csv'; /* keep as-is */
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbhCHyINYJMEBbnl_SGBujZOOUB0rw4WnXWirV9dUF_PaktI2oVM0ubMRK6B_Xw/pub?output=csv';
 
     /* ============================================================
-       SMALL HELPERS
+       FONCTIONS UTILITAIRES (sélecteurs, échappement, formats)
        ============================================================ */
     const $ = (s,r=document)=>r.querySelector(s);
     const $$ = (s,r=document)=>Array.from(r.querySelectorAll(s));
@@ -185,12 +210,13 @@
     const isImg = (v)=>/\.(png|jpe?g|gif|webp|bmp|svg)(\?.*)?$/i.test(String(v));
 
     /* ============================================================
-       APP STATE
+       ÉTAT GLOBAL DE L’APPLICATION
+       - Données en mémoire, index, filtres actifs
        ============================================================ */
     let rows=[], headers=[], bySlug=new Map();
     let expandedFacets=new Set();
 
-    // Active tokens per facet label (kept in French as requested)
+    // Éléments actifs par catégorie de filtre (libellés en français)
     let activeTokens = new Map([
       ['Besoin', new Set()],
       ['Technologie', new Set()],
@@ -201,7 +227,7 @@
       ['Localisation', new Set()],
     ]);
 
-    // Column mapping (French dataset); we look for exact or *_fr headers first
+    // Correspondance des colonnes (jeu de données en français)
     const COL = {
       name:         { base: ['Nom'], suffix: true },
       description:  { base: ['Description'], suffix: true },
@@ -217,9 +243,8 @@
     const headersIndex = ()=>{const m=new Map();headers.forEach(h=>m.set(String(h||'').trim().toLowerCase(),h));return m;};
     const findHeader   = (cand)=>headers.find(h=>new RegExp(`^${cand}$`,'i').test(h))||null;
 
-    // Pick a header for a logical key:
-    //  - tries Base_fr then Base (we removed EN; only FR is kept)
-    //  - loose fallback: first header that contains the base token
+    // Sélection d’un en-tête correspondant à une clé logique
+    // Stratégie : Base_fr puis Base ; enfin, correspondance souple si besoin
     function pickHeader(key){
       const info=COL[key]; if(!info) return null;
       const H=headersIndex(); const list=[];
@@ -232,19 +257,21 @@
     const nameKey   = ()=> pickHeader('name') || headers[0] || 'Nom';
 
     /* ============================================================
-       CSV LOADING (PapaParse)
+       CHARGEMENT DU CSV (PapaParse)
+       - Télécharge le CSV public et prépare les lignes/colonnes
        ============================================================ */
     async function loadCSV(url){
       return new Promise((resolve,reject)=>{
         Papa.parse(url,{
           header:true, download:true, skipEmptyLines:true,
           complete: res=>{
-            // compact rows (drop empty)
+            // Nettoyage des lignes vides
             const data=(res.data||[]).filter(o=>Object.values(o).some(v=>String(v||'').trim()!==''));
             headers=(res.meta?.fields || Object.keys(data[0]||{})).map(h=>String(h||'').trim());
             const nkey=nameKey();
             rows=data.map((r,i)=>({...r,__slug:slug(r[nkey]||`item-${i}`)}));
             bySlug=new Map(rows.map(r=>[r.__slug,r]));
+            // Tri alphabétique par nom (insensible à la casse/accents)
             rows.sort((a,b)=> String(a[nkey]||'').localeCompare(String(b[nkey]||''), 'fr', {sensitivity:'base'}));
             route(); resolve();
           },
@@ -254,7 +281,7 @@
     }
 
     /* ============================================================
-       FACETS (build values, filter logic, rendering)
+       GESTION DES FILTRES (construction, valeurs, correspondances)
        ============================================================ */
     const facetDefs = () => [
       { key: 'needs',       label: 'Besoin' },
@@ -266,6 +293,7 @@
       { key: 'location',    label: 'Localisation' },
     ];
 
+    // Calcule les valeurs possibles par catégorie (dédoublonnées + triées)
     function facetValues(){
       const out=new Map(); for(const f of facetDefs()) out.set(f.label,new Set());
       for(const r of rows){
@@ -282,7 +310,7 @@
       return obj;
     }
 
-    // OR logic across all checked tokens (category-agnostic OR)
+    // Logique de filtrage : correspond si AU MOINS une valeur cochée apparaît dans la ligne
     function matchRow(r){
       const any=[...activeTokens.values()].some(s=>s.size>0); if(!any) return true;
       for(const f of facetDefs()){
@@ -293,7 +321,7 @@
       return false;
     }
 
-    // Render facet block with “Voir plus / Voir moins”
+    // Rend les blocs de filtres avec bouton « Voir plus / Voir moins »
     function renderFacets(intoEl){
       const facets = facetValues();
       const html = Object.entries(facets).map(([label, vals])=>{
@@ -315,7 +343,7 @@
 
       intoEl.innerHTML = html;
 
-      // Checkbox behavior → update filter set, re-render cards
+      // Gestion des cases à cocher → mise à jour du filtre + rechargement des cartes
       intoEl.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
         cb.addEventListener('change',()=>{
           const label = cb.getAttribute('data-facet');
@@ -325,7 +353,7 @@
         });
       });
 
-      // “Voir plus / Voir moins”
+      // Boutons « Voir plus / Voir moins »
       intoEl.querySelectorAll('.see-more').forEach(btn=>{
         btn.addEventListener('click', ()=>{
           const label = btn.getAttribute('data-facet-toggle');
@@ -338,7 +366,7 @@
     const renderAllFacetBlocks = ()=>{ const s=$('#facetRoot'); if(s) renderFacets(s); };
 
     /* ============================================================
-       RENDER: cards grid + search (from header only)
+       AFFICHAGE DES CARTES (liste) + RECHERCHE GLOBALE
        ============================================================ */
     function card(r){
       const nkey=nameKey();
@@ -357,7 +385,7 @@
       const grid = $('#gridRoot');
       const count = $('#count');
 
-      // Global search uses header input (#q) when on directory
+      // La recherche globale utilise le champ du header (#q) uniquement sur le répertoire
       let q = '';
       if (location.hash.startsWith('#/repertoire')) q = ($('#q')?.value || '').trim().toLowerCase();
 
@@ -368,7 +396,7 @@
       grid.innerHTML = list.map(card).join('') || `<div class="meta">Aucun résultat.</div>`;
       count.textContent = list.length===1 ? '1 élément' : `${list.length} éléments`;
 
-      // Card navigation (click + keyboard)
+      // Navigation par carte (clic ou clavier)
       grid.querySelectorAll('.card').forEach(el=>{
         el.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); location.hash=`#/repertoire/${el.dataset.slug}`; } });
         el.addEventListener('click',()=> location.hash=`#/repertoire/${el.dataset.slug}`);
@@ -376,7 +404,7 @@
     }
 
     /* ============================================================
-       VIEWS
+       VUES (ACCUEIL, CONTACT, À PROPOS, RÉPERTOIRE, DÉTAIL)
        ============================================================ */
     function viewHome(){
       $('#page').innerHTML = `
@@ -393,10 +421,10 @@
           </div>
         </section>`;
 
-      // Autofocus for quick typing
+      // Mise au focus du champ de recherche dès l’arrivée
       setTimeout(() => $('#homeSearchInput')?.focus(), 100);
 
-      // Submit → copy query to header search and navigate to directory
+      // À la soumission : copie la recherche dans la barre du header et ouvre le répertoire
       $('#homeSearchForm').addEventListener('submit', (e)=>{
         e.preventDefault();
         const q = $('#homeSearchInput').value || '';
@@ -424,7 +452,7 @@
         </section>`;
     }
 
-    // Directory wrapper: hides filters by default, toggles on button
+    // Page Répertoire : filtres masqués par défaut, bouton pour les afficher
     function viewRepertoire(){
       $('#page').innerHTML = `
         <section class="page">
@@ -438,11 +466,11 @@
           </div>
         </section>`;
 
-      // Initial render (filters hidden)
+      // Premier rendu (filtres cachés)
       renderAllFacetBlocks();
       applyFiltersAndRenderCards();
 
-      // Toggle sidebar filters
+      // Bouton d’affichage/masquage des filtres latéraux
       const btn = $('#toggleFilters');
       const layout = $('#repoLayout');
       const sidebar = $('#facetRoot');
@@ -460,7 +488,7 @@
       });
     }
 
-    // Detail page (single dynamic “subpage” driven by the row)
+    // Page Détail : une seule sous-page dynamique basée sur la ligne sélectionnée
     function viewDetail(slugId){
       const r=bySlug.get(slugId);
       if(!r){
@@ -470,22 +498,22 @@
       const nkey=nameKey();
       const name=r[nkey]||'(sans nom)';
 
-      // Pull common fields from row
+      // Champs usuels récupérés sur la ligne
       const handicap=pickValue(r,'disability');
       const besoinHeader=headers.find(h=>/^(besoin|besoins)$/i.test(h) || /^besoin_?fr$/i.test(h));
       const besoin=besoinHeader?(r[besoinHeader]||''):'';
       const description=pickValue(r,'description');
 
-      // Image (try explicit “Image*” fields, else any URL that looks like an image)
+      // Image (priorité aux colonnes "Image*" ; sinon première URL d’image trouvée)
       const imageHeader=headers.find(h=>/^(image|illustration|photo|visuel)(_fr)?$/i.test(h)) || headers.find(h=> isUrl(r[h]) && isImg(r[h]));
       const imageUrl=imageHeader? String(r[imageHeader]) : '';
       const imgCapHeader=headers.find(h=>/^(description[_ ]?image|legende[_ ]?image)$/i.test(h));
       const imageCaption=imgCapHeader? String(r[imgCapHeader]) : '';
 
-      // Links and meta
+      // Liens et métadonnées
       const siteHeader=headers.find(h=>/^(site|url|lien|site web)$/i.test(h));
       const site=siteHeader? String(r[siteHeader]) : '';
-      const localisation = pickValue(r,'location');       /* FIX: use 'location' (not 'countries') */
+      const localisation = pickValue(r,'location'); // Utilise la colonne Localisation
       const langues      = pickValue(r,'langs');
       const dateHeader=headers.find(h=>/^(date|année)$/i.test(h));
       const dateVal=dateHeader? String(r[dateHeader]) : '';
@@ -497,7 +525,6 @@
           <div class="sheet">
             <div class="left">
               <div class="title">${esc(name)}</div>
-              <!-- Removed obsolete "Mots-clefs" line (column dropped by design) -->
               <div class="line">
                 <div><span class="label">Handicap :</span> ${handicap ? esc(handicap) : ''}</div>
                 <div><span class="label">Besoin :</span> ${besoin ? esc(besoin) : ''}</div>
@@ -525,102 +552,12 @@
         </section>`;
     }
 
-    // Politique de confidentialité
-    function viewPrivacy(){
-      $('#page').innerHTML = `
-        <section class="page article">
-          <div class="hero">
-            <h2>Politique de confidentialité</h2>
-            <div class="meta">LIBTECH · Répertoire des technologies accessibles</div>
-          </div>
-
-          <div class="section">
-            <h3>1. Objet et champ d’application</h3>
-            <p>La présente politique explique comment nous traitons les données à caractère personnel dans le cadre du site LIBTECH
-            (<a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a>).</p>
-          </div>
-
-          <div class="section">
-            <h3>2. Responsable du traitement &amp; contact</h3>
-            <p><strong>Éditeur / Responsable de publication :</strong> LIBTECH – Maël JEREZ<br>
-            <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br>
-            <strong>Contact :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a></p>
-          </div>
-
-          <div class="section">
-            <h3>3. Données que nous traitons</h3>
-            <ul>
-              <li><strong>Données de contact</strong> (si vous nous écrivez) : adresse e-mail, contenu du message.</li>
-              <li><strong>Préférences d’affichage locales</strong> : langue, police (stockées sur votre appareil via <code>localStorage</code>, non transmises au serveur).</li>
-              <li><strong>Contenus répertoriés</strong> : informations publiques provenant d’un fichier CSV/Google Sheets publié (technologies, descriptions, liens, images). Ces contenus ne sont pas des « données personnelles » des visiteurs.</li>
-              <li><strong>Journaux techniques</strong> (côté hébergeur) : éléments nécessaires à la sécurité et au bon fonctionnement du site (voir § 9).</li>
-            </ul>
-          </div>
-
-          <div class="section">
-            <h3>4. Finalités et bases légales</h3>
-            <ul>
-              <li><strong>Répondre à vos messages</strong> (intérêt légitime, art. 6-1-f RGPD).</li>
-              <li><strong>Fournir le service</strong> : affichage du répertoire et de ses filtres (intérêt légitime / exécution d’un service).</li>
-              <li><strong>Sécurité et maintenance</strong> : prévention d’abus, diagnostic d’incidents (intérêt légitime).</li>
-            </ul>
-          </div>
-
-          <div class="section">
-            <h3>5. Destinataires</h3>
-            <p>Les données ne sont pas cédées à des tiers à des fins commerciales. Elles peuvent être accessibles, si nécessaire,
-            aux personnes habilitées intervenant pour l’exploitation, l’hébergement ou la maintenance du site, strictement pour ces finalités.</p>
-          </div>
-
-          <div class="section">
-            <h3>6. Durées de conservation</h3>
-            <ul>
-              <li><strong>Messages reçus</strong> : le temps de traiter la demande puis archivage limité au strict nécessaire.</li>
-              <li><strong>Préférences locales</strong> (langue/police) : conservées sur votre appareil tant que vous ne les supprimez pas.</li>
-              <li><strong>Journaux techniques</strong> : durée courte, limitée aux besoins de sécurité/diagnostic de l’hébergeur.</li>
-            </ul>
-          </div>
-
-          <div class="section">
-            <h3>7. Vos droits</h3>
-            <p>Vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et du droit à la portabilité,
-            dans les limites légales. Pour exercer vos droits, écrivez-nous à <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
-            Vous pouvez aussi saisir votre autorité de contrôle compétente.</p>
-          </div>
-
-          <div class="section">
-            <h3>8. Cookies et traceurs</h3>
-            <p>Nous n’utilisons pas de cookies de suivi ni d’outils d’analytics déposant des traceurs. Le site stocke uniquement des
-            <strong>préférences d’interface</strong> (langue, police) dans votre navigateur via <code>localStorage</code>, ce qui ne transmet aucune information au serveur.</p>
-          </div>
-
-          <div class="section">
-            <h3>9. Hébergement et sécurité</h3>
-            <p><strong>Hébergeur :</strong> CREMI – Université de Bordeaux (351 Cours de la Libération, 33400 Talence, France). L’hébergeur peut
-            conserver des journaux techniques pour des raisons de sécurité et de continuité de service.</p>
-          </div>
-
-          <div class="section">
-            <h3>10. Transferts hors UE</h3>
-            <p>Le site est hébergé au sein de l’UE. Les contenus du répertoire peuvent référencer des services tiers (liens, images)
-            susceptibles d’être hébergés hors UE : dans ce cas, leur consultation est soumise aux politiques de ces services tiers.</p>
-          </div>
-
-          <div class="section">
-            <h3>11. Modifications</h3>
-            <p>La présente politique peut être mise à jour pour refléter des évolutions légales ou techniques. La version en ligne fait foi.</p>
-          </div>
-
-          <div class="section">
-            <p class="meta">Dernière mise à jour : <time datetime="2025-11-12">12/11/2025</time></p>
-          </div>
-        </section>`;
-    }
     /* ============================================================
-       ROUTER + GLOBAL WIDGETS
+       ROUTEUR (mise à jour de la vue en fonction du hash)
        ============================================================ */
     function setActiveNav(){
       const h = location.hash || '#/';
+      // Détermine l’onglet actif (le répertoire gère aussi les sous-routes)
       $$('a[data-nav]').forEach(a=>{
         const href=a.getAttribute('href');
         const isRepo=href==='#/repertoire' && h.startsWith('#/repertoire');
@@ -628,12 +565,11 @@
         a.setAttribute('aria-current',(isRepo||isExact)?'page':'false');
       });
 
-      // On home, hide header search (CSS uses body.home) and optionally reveal .home-info on scroll
+      // Sur l’accueil, masquer la recherche du header via la classe body.home
       if (h === '#/' || h === '#') {
         document.body.classList.add('home');
       } else {
         document.body.classList.remove('home');
-        document.body.classList.remove('home-scrolled');
       }
     }
 
@@ -648,27 +584,30 @@
       if(h==="#/a-propos"){ viewAbout(); return; }
       if(h==="#/plan-du-site"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Plan du site</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
       if(h==="#/mentions-legales"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Mentions légales</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
-      if(h==="#/confidentialite"){ viewPrivacy(); return; }
+      if(h==="#/confidentialite"){ $('#page').innerHTML=`<section class="page article"><div class="hero"><h2>Politique de confidentialité</h2></div><div class="section"><p>(Contenu à compléter.)</p></div></section>`; return; }
       viewHome();
     }
     window.addEventListener('hashchange', route);
 
-    // Header search: live filter on directory only
+    /* ============================================================
+       COMPORTEMENTS GLOBAUX (recherche, langue, police)
+       ============================================================ */
+    // Recherche dans le header : filtrage en direct sur la page Répertoire
     $('#q').addEventListener('input', ()=>{
       if (location.hash.startsWith('#/repertoire')) applyFiltersAndRenderCards();
     });
 
-    // Lang selector intentionally inert for now
-    $('#lang').addEventListener('change', ()=>{ /* noop (future i18n) */ });
+    // Sélecteur de langue : inactif pour l’instant (prévu pour i18n futur)
+    $('#lang').addEventListener('change', ()=>{ /* inactif volontairement */ });
 
-    // Live font switch
+    // Changement de police en direct
     $('#font').addEventListener('change', ()=>{
       const v=$('#font').value;
       document.body.style.fontFamily = v==='system'? '' : (v==='serif'?'Georgia,serif':'ui-monospace, Menlo, Consolas, "Courier New", monospace');
     });
 
     /* ============================================================
-       BOOT
+       DÉMARRAGE DE L’APPLICATION
        ============================================================ */
     (async function init(){ await loadCSV(CSV_URL); })();
   })();
