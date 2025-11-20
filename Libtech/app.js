@@ -59,6 +59,15 @@
   ];
   let activeTokens = new Map(FACET_LABELS.map((label) => [label, new Set()]));
 
+  // Pagination : nombre d’éléments par page et page courante
+  const PAGE_SIZE = 12;
+  let currentPage = 1;
+
+  // Colonnes d’images dans le CSV (déduites au chargement)
+  let imageHeader = null;
+  let imageDescHeader = null;
+
+
   // ------------------------------------------------------------
   // 4. Mapping logique des colonnes du CSV
   //    (permet de changer légèrement les en-têtes sans casser le code)
@@ -155,7 +164,13 @@
             ...r,
             __slug: slug(r[nkey] || `item-${i}`),
           }));
+
           bySlug = new Map(rows.map((r) => [r.__slug, r]));
+
+
+          // Détection des colonnes Image et Description_Image (une seule fois)
+          imageHeader = headers.find(h => /^image(_fr)?$/i.test(h)) || null;
+          imageDescHeader = headers.find(h => /^description[_ ]?image(_fr)?$/i.test(h)) || null;
 
           // Tri global par nom
           rows.sort((a, b) =>
@@ -289,15 +304,12 @@
     intoEl.innerHTML = html;
 
     // Clic sur une case à cocher → mise à jour des filtres + rafraîchissement des cartes
-    intoEl.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+    intoEl.querySelectorAll('input[type="checkbox"]').forEach(cb => {
       cb.addEventListener('change', () => {
         const label = cb.getAttribute('data-facet');
         const set = activeTokens.get(label);
-        if (!set) return;
-
-        if (cb.checked) set.add(cb.value);
-        else set.delete(cb.value);
-
+        if (cb.checked) set.add(cb.value); else set.delete(cb.value);
+        currentPage = 1;                 // Retour à la première page
         applyFiltersAndRenderCards();
       });
     });
@@ -321,30 +333,42 @@
   // ------------------------------------------------------------
   // 7. Affichage des cartes + recherche globale
   // ------------------------------------------------------------
-  function card(row) {
+  function card(r) {
     const nkey = nameKey();
-    const name = row[nkey] || '(sans nom)';
-    const desc = pickValue(row, 'description');
-    const short =
-      String(desc || '').length > 140
-        ? `${String(desc).slice(0, 140).trim()}…`
-        : desc || '';
+    const name = r[nkey] || '(sans nom)';
+    const desc = pickValue(r, 'description');
+    const short = String(desc || '').length > 140
+      ? String(desc).slice(0, 140).trim() + '…'
+      : (desc || '');
+
+    // Récupération du lien d’image et du texte de fallback depuis le CSV
+    const imgUrl = imageHeader ? String(r[imageHeader] || '').trim() : '';
+    const imgAlt = imageDescHeader ? String(r[imageDescHeader] || '').trim() : '';
 
     return `
-      <article class="card" tabindex="0" role="button"
-               aria-label="${esc(name)}"
-               data-slug="${esc(row.__slug)}">
+      <article class="card" tabindex="0" role="button" aria-label="${esc(name)}" data-slug="${esc(r.__slug)}">
+        <div class="card-thumb">
+          ${
+            imgUrl && isUrl(imgUrl) && isImg(imgUrl)
+              ? `<img src="${esc(imgUrl)}"
+                      alt="${esc(imgAlt || name)}"
+                      onerror="this.style.display='none'; if(this.nextElementSibling){this.nextElementSibling.style.display='block';}" />`
+              : ''
+          }
+          ${
+            imgAlt
+              ? `<span class="card-thumb-fallback" style="${imgUrl ? 'display:none;' : ''}">${esc(imgAlt)}</span>`
+              : ''
+          }
+        </div>
         <div class="title"><em><strong>${esc(name)}</strong></em></div>
         <div class="desc">
-          ${
-            short
-              ? esc(short)
-              : '<span class="meta">Pas de description</span>'
-          }
-          <a href="#/repertoire/${esc(row.__slug)}">Voir plus…</a>
+          ${short ? esc(short) : '<span class="meta">Pas de description</span>'}
+          <a href="#/repertoire/${esc(r.__slug)}">Voir plus…</a>
         </div>
       </article>`;
   }
+
 
   /**
    * Applique les filtres + la recherche texte, puis met à jour la grille de cartes.
@@ -353,47 +377,69 @@
     const nkey = nameKey();
     const grid = $('#gridRoot');
     const count = $('#count');
-    if (!grid || !count) return;
 
-    let query = '';
+    // Recherche globale : champ du header (#q) uniquement sur le répertoire
+    let q = '';
     if (location.hash.startsWith('#/repertoire')) {
-      query = ($('#q')?.value || '').trim().toLowerCase();
+      q = ($('#q')?.value || '').trim().toLowerCase();
     }
 
+    // 1) Filtrage par facettes + recherche
     let list = rows.filter(matchRow);
-
-    // Recherche texte globale (min 2 caractères)
-    if (query.length >= 2) {
-      list = list.filter((row) =>
-        Object.values(row).some((v) =>
-          String(v).toLowerCase().includes(query)
-        )
+    if (q.length >= 2) {
+      list = list.filter(r =>
+        Object.values(r).some(v => String(v).toLowerCase().includes(q))
       );
     }
 
+    // Tri alphabétique par nom
     list.sort((a, b) =>
-      String(a[nkey] || '').localeCompare(String(b[nkey] || ''), 'fr', {
-        sensitivity: 'base',
-      })
+      String(a[nkey] || '').localeCompare(String(b[nkey] || ''), 'fr', { sensitivity: 'base' })
     );
 
-    grid.innerHTML =
-      list.map(card).join('') || '<div class="meta">Aucun résultat.</div>';
-    count.textContent = list.length === 1 ? '1 élément' : `${list.length} éléments`;
+    // 2) Gestion de la pagination
+    const totalItems = list.length;
+    const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
 
-    // Navigation clavier et clic sur les cartes
-    grid.querySelectorAll('.card').forEach((el) => {
-      const go = () =>
-        (location.hash = `#/repertoire/${el.dataset.slug || ''}`);
-      el.addEventListener('click', go);
-      el.addEventListener('keydown', (e) => {
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const pageRows = list.slice(start, start + PAGE_SIZE);
+
+    // 3) Rendu des cartes de la page courante
+    grid.innerHTML = pageRows.length
+      ? pageRows.map(card).join('')
+      : `<div class="meta">Aucun résultat.</div>`;
+
+    // Affichage du nombre total d’éléments (sur toutes les pages)
+    count.textContent = totalItems === 1 ? '1 élément' : `${totalItems} éléments`;
+
+    // 4) Mise à jour de la barre de pagination (page X / Y + état des boutons)
+    const info = $('#pageInfo');
+    const prevBtn = $('#prevPage');
+    const nextBtn = $('#nextPage');
+
+    if (info) {
+      info.textContent = totalItems === 0
+        ? '0 résultat'
+        : `Page ${currentPage} / ${totalPages}`;
+    }
+    if (prevBtn) prevBtn.disabled = currentPage <= 1 || totalItems === 0;
+    if (nextBtn) nextBtn.disabled = currentPage >= totalPages || totalItems === 0;
+
+    // 5) Navigation par carte (clic ou clavier)
+    grid.querySelectorAll('.card').forEach(el => {
+      el.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          go();
+          location.hash = `#/repertoire/${el.dataset.slug}`;
         }
       });
+      el.addEventListener('click', () => location.hash = `#/repertoire/${el.dataset.slug}`);
     });
   }
+
 
   // ------------------------------------------------------------
   // 8. Vues (Accueil, Contact, À propos, Répertoire, Détail, Soumettre, etc.)
@@ -680,12 +726,39 @@ numérique et la conception accessible.</p>
         </div>
         <div class="repo-layout no-filters" id="repoLayout">
           <aside class="sidebar hidden" id="facetRoot" aria-label="Filtres"></aside>
-          <div><div class="grid" id="gridRoot"></div></div>
+          <div>
+            <div class="grid" id="gridRoot"></div>
+            <div class="pagination" id="pagination">
+              <button type="button" id="prevPage" class="btn pagination-btn">Précédent</button>
+              <span id="pageInfo" class="pagination-info"></span>
+              <button type="button" id="nextPage" class="btn pagination-btn">Suivant</button>
+            </div>
+          </div>
         </div>
       </section>`;
 
     renderAllFacetBlocks();
     applyFiltersAndRenderCards();
+
+    // Gestion des boutons de pagination
+    const prev = $('#prevPage');
+    const next = $('#nextPage');
+
+    if (prev) {
+      prev.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          applyFiltersAndRenderCards();
+        }
+      });
+    }
+
+    if (next) {
+      next.addEventListener('click', () => {
+        currentPage++;                  // Le clamp se fait dans applyFiltersAndRenderCards
+        applyFiltersAndRenderCards();
+      });
+    }    
 
     const btn = $('#toggleFilters');
     const layout = $('#repoLayout');
@@ -857,89 +930,7 @@ numérique et la conception accessible.</p>
   function viewConfidentialite() {
     viewStaticPage(
       'Politique de confidentialité',
-      `"Politique de confidentialité",
-    `
-  <p class="muted">Dernière mise à jour : 2025</p>
-
-  <p>
-    Cette politique explique comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs.
-    Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles.
-    Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.
-  </p>
-
-  <p>
-    LIBTECH est un projet universitaire visant à répertorier des technologies inclusives.
-    Vous pouvez consulter l’intégralité du site sans créer de compte et sans transmettre d’informations personnelles.
-  </p>
-
-  <h2>Informations recueillies</h2>
-  <p>
-    Le site ne collecte aucune donnée personnelle à des fins publicitaires ou commerciales.
-    Des informations techniques telles que l’adresse IP, l’heure de connexion ou la page consultée peuvent être enregistrées automatiquement
-    par le serveur de l’Université de Bordeaux pour des raisons de sécurité et de fonctionnement.
-    LIBTECH n’exploite pas activement ces données et ne les utilise pas à des fins d’analyse individuelle.
-  </p>
-  <p>
-    Si vous nous contactez par e-mail, nous recevrons votre adresse e-mail et le contenu de votre message.
-  </p>
-
-  <h2>Méthodes de collecte</h2>
-  <p>
-    Le site ne comporte pas de système d’inscription. Les seules informations personnelles pouvant être collectées
-    sont celles que vous choisissez de nous transmettre volontairement, principalement par e-mail.
-  </p>
-
-  <h2>Finalité de la collecte</h2>
-  <p>
-    Les informations sont utilisées uniquement pour :
-  </p>
-  <ul>
-    <li>assurer le fonctionnement et la sécurité du site ;</li>
-    <li>répondre aux sollicitations envoyées par e-mail ;</li>
-    <li>respecter les obligations légales liées à l’hébergement universitaire.</li>
-  </ul>
-
-  <h2>Stockage et partage des données</h2>
-  <p>
-    Le site est hébergé par le Centre de Ressources Informatiques de l’Université de Bordeaux.
-    Les informations techniques du serveur sont gérées conformément aux pratiques institutionnelles.
-  </p>
-  <p>
-    Les e-mails reçus sont traités uniquement pour répondre aux messages.
-    Aucune donnée n’est vendue, cédée ou partagée avec des tiers, sauf obligation légale.
-  </p>
-
-  <h2>Communication avec les utilisateurs</h2>
-  <p>
-    Nous ne vous contactons que si vous nous écrivez.
-    Les échanges se font exclusivement par e-mail et uniquement pour répondre à vos questions ou remarques.
-  </p>
-
-  <h2>Cookies</h2>
-  <p>
-    Aucun cookie publicitaire n’est utilisé.
-    Seuls des cookies techniques peuvent être présents afin d’assurer le bon fonctionnement du site, sans suivi personnalisé.
-  </p>
-
-  <h2>Vos droits</h2>
-  <p>
-    Si vous nous avez transmis des informations par e-mail, vous pouvez demander leur consultation, modification ou suppression
-    en nous écrivant à :
-    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
-  </p>
-
-  <h2>Mises à jour</h2>
-  <p>
-    Cette politique peut être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales.
-    La version la plus récente est toujours disponible sur cette page.
-  </p>
-
-  <hr>
-
-  <p class="muted">
-    Pour toute question concernant cette politique de confidentialité, contactez :
-    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
-  </p>
+      `<p>(Contenu à compléter.)</p>`
     );
   }
 
@@ -1003,6 +994,7 @@ numérique et la conception accessible.</p>
   if (qInput) {
     qInput.addEventListener('input', () => {
       if (location.hash.startsWith('#/repertoire')) {
+        currentPage = 1;
         applyFiltersAndRenderCards();
       }
     });

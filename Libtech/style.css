@@ -281,6 +281,52 @@ main {
     margin-top: 6px;
 }
 
+/* Image en haut de chaque carte (aperçu de la technologie) */
+.card-thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-thumb-fallback {
+    font-size: var(--fs-sm);
+    color: var(--muted);
+    padding: 8px;
+    text-align: center;
+}
+
+/* Barre de pagination sous la grille */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination-info {
+    font-size: var(--fs-sm);
+    color: var(--muted);
+}
+
+.pagination-btn[disabled] {
+    opacity: 0.4;
+    cursor: default;
+}
+
 /* ===============================
    FICHE DÉTAILLÉE (MISE EN PAGE)
    =============================== */
