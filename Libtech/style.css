@@ -79,7 +79,7 @@ button {
 header {
     position: sticky;
     top: 0;
-    height: var(--header);
+    min-height: var(--header);
     display: flex;
     align-items: center;
     background: color-mix(in oklab, var(--panel) 92%, transparent);
