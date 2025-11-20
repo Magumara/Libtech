@@ -857,7 +857,89 @@ numérique et la conception accessible.</p>
   function viewConfidentialite() {
     viewStaticPage(
       'Politique de confidentialité',
-      `<p>(Contenu à compléter.)</p>`
+      `"Politique de confidentialité",
+    `
+  <p class="muted">Dernière mise à jour : 2025</p>
+
+  <p>
+    Cette politique explique comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs.
+    Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles.
+    Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.
+  </p>
+
+  <p>
+    LIBTECH est un projet universitaire visant à répertorier des technologies inclusives.
+    Vous pouvez consulter l’intégralité du site sans créer de compte et sans transmettre d’informations personnelles.
+  </p>
+
+  <h2>Informations recueillies</h2>
+  <p>
+    Le site ne collecte aucune donnée personnelle à des fins publicitaires ou commerciales.
+    Des informations techniques telles que l’adresse IP, l’heure de connexion ou la page consultée peuvent être enregistrées automatiquement
+    par le serveur de l’Université de Bordeaux pour des raisons de sécurité et de fonctionnement.
+    LIBTECH n’exploite pas activement ces données et ne les utilise pas à des fins d’analyse individuelle.
+  </p>
+  <p>
+    Si vous nous contactez par e-mail, nous recevrons votre adresse e-mail et le contenu de votre message.
+  </p>
+
+  <h2>Méthodes de collecte</h2>
+  <p>
+    Le site ne comporte pas de système d’inscription. Les seules informations personnelles pouvant être collectées
+    sont celles que vous choisissez de nous transmettre volontairement, principalement par e-mail.
+  </p>
+
+  <h2>Finalité de la collecte</h2>
+  <p>
+    Les informations sont utilisées uniquement pour :
+  </p>
+  <ul>
+    <li>assurer le fonctionnement et la sécurité du site ;</li>
+    <li>répondre aux sollicitations envoyées par e-mail ;</li>
+    <li>respecter les obligations légales liées à l’hébergement universitaire.</li>
+  </ul>
+
+  <h2>Stockage et partage des données</h2>
+  <p>
+    Le site est hébergé par le Centre de Ressources Informatiques de l’Université de Bordeaux.
+    Les informations techniques du serveur sont gérées conformément aux pratiques institutionnelles.
+  </p>
+  <p>
+    Les e-mails reçus sont traités uniquement pour répondre aux messages.
+    Aucune donnée n’est vendue, cédée ou partagée avec des tiers, sauf obligation légale.
+  </p>
+
+  <h2>Communication avec les utilisateurs</h2>
+  <p>
+    Nous ne vous contactons que si vous nous écrivez.
+    Les échanges se font exclusivement par e-mail et uniquement pour répondre à vos questions ou remarques.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    Aucun cookie publicitaire n’est utilisé.
+    Seuls des cookies techniques peuvent être présents afin d’assurer le bon fonctionnement du site, sans suivi personnalisé.
+  </p>
+
+  <h2>Vos droits</h2>
+  <p>
+    Si vous nous avez transmis des informations par e-mail, vous pouvez demander leur consultation, modification ou suppression
+    en nous écrivant à :
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+
+  <h2>Mises à jour</h2>
+  <p>
+    Cette politique peut être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales.
+    La version la plus récente est toujours disponible sur cette page.
+  </p>
+
+  <hr>
+
+  <p class="muted">
+    Pour toute question concernant cette politique de confidentialité, contactez :
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
     );
   }
 
