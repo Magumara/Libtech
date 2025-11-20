@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mentions légales · LIBTECH</title>
+  <meta name="description" content="Mentions légales du site LIBTECH, répertoire des technologies accessibles.">
+  <style>
+    :root { --max: 800px; --fg: #14213d; --muted:#6b7280; --link:#1d4ed8; --bg:#ffffff; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;}
+    main{max-width:var(--max);margin:48px auto;padding:0 20px;}
+    h1{font-size:2rem;margin:0 0 12px;}
+    h2{font-size:1.25rem;margin:28px 0 8px;}
+    p{margin:8px 0;}
+    .muted{color:var(--muted);}
+    a{color:var(--link);text-decoration:underline;}
+    address{font-style:normal;}
+    hr{border:0;border-top:1px solid #e5e7eb;margin:28px 0;}
+    .block{padding:18px 16px;border:1px solid #e5e7eb;border-radius:12px; background:#fafafa;}
+  </style>
+</head>
+<body>
+  <main role="main">
+    <header>
+      <h1>Mentions légales</h1>
+      <p class="muted">LIBTECH · Répertoire des technologies accessibles</p>
+      <p>
+        Adresse du site :
+        <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" rel="noopener" target="_blank">
+          https://mael-jerez.emi.u-bordeaux.fr/libtech/
+        </a>
+      </p>
+    </header>
+
+    <section aria-labelledby="edition">
+      <h2 id="edition">Éditeur du site</h2>
+      <p>Ce site est édité dans le cadre du projet LIBTECH. Il a pour objectif de recenser et valoriser des technologies et services favorisant l’inclusion et l’accessibilité numérique.</p>
+      <div class="block">
+        <p><strong>Éditeur :</strong> LIBTECH</p>
+        <p><strong>Responsable de publication :</strong> Maël JEREZ</p>
+        <address>
+          <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br>
+          <strong>Adresse e-mail :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>
+        </address>
+      </div>
+    </section>
+
+    <section aria-labelledby="hebergement">
+      <h2 id="hebergement">Hébergement</h2>
+      <p>Le site est hébergé par le CREMI, Centre de Ressources Informatiques de l’Université de Bordeaux.</p>
+      <div class="block">
+        <p><strong>Hébergeur :</strong> CREMI, Université de Bordeaux</p>
+        <p>
+          <strong>Adresse du site :</strong>
+          <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" rel="noopener" target="_blank">
+            https://mael-jerez.emi.u-bordeaux.fr/libtech/
+          </a>
+        </p>
+        <address>
+          <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France
+        </address>
+      </div>
+    </section>
+
+    <section aria-labelledby="pi">
+      <h2 id="pi">Propriété intellectuelle</h2>
+      <p>Le contenu présenté sur ce site, incluant les textes, le design, la structure des pages et l’organisation des informations, est protégé par les lois en vigueur.</p>
+      <p>Les solutions et ressources répertoriées restent la propriété de leurs éditeurs respectifs. Toute reproduction ou utilisation importante du contenu sans autorisation préalable est interdite.</p>
+    </section>
+
+    <section aria-labelledby="donnees">
+      <h2 id="donnees">Données personnelles</h2>
+      <p>Aucune donnée personnelle n’est collectée automatiquement à des fins commerciales. Les informations transmises volontairement par e-mail sont utilisées uniquement pour répondre aux messages et ne sont jamais cédées à des tiers.</p>
+      <p>Pour toute demande d’accès, de modification ou de suppression de vos données, vous pouvez écrire à
+        <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="responsabilite">
+      <h2 id="responsabilite">Responsabilité</h2>
+      <p>Les informations partagées sur ce site sont fournies à titre informatif. Elles peuvent évoluer et ne sauraient engager la responsabilité de l’éditeur en cas d’erreur, d’omission ou de mise à jour tardive.</p>
+      <p>Le site peut contenir des liens vers d’autres ressources. Le contenu de ces sources externes reste sous la responsabilité de leurs auteurs respectifs.</p>
+    </section>
+
+    <section aria-labelledby="accessibilite">
+      <h2 id="accessibilite">Accessibilité</h2>
+      <p>LIBTECH s’inscrit dans une démarche visant à promouvoir l’accessibilité numérique. Toute suggestion d’amélioration ou signalement concernant l’accessibilité peut être adressé à
+        <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+      </p>
+    </section>
+
+    <hr>
+    <footer>
+      <p class="muted">© LIBTECH</p>
+    </footer>
+  </main>
+</body>
+</html>
