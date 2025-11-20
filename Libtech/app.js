@@ -924,15 +924,185 @@ numérique et la conception accessible.</p>
   }
 
   function viewMentions() {
-    viewStaticPage('Mentions légales', '<p>(Contenu à compléter.)</p>');
-  }
-
-  function viewConfidentialite() {
     viewStaticPage(
-      'Politique de confidentialité',
-      `<p>(Contenu à compléter.)</p>`
+      'Mentions légales',
+      `
+  <p class="meta">LIBTECH · Répertoire des technologies accessibles</p>
+  <p>
+    Adresse du site :
+    <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">
+      https://mael-jerez.emi.u-bordeaux.fr/libtech/
+    </a>
+  </p>
+
+  <h2>Éditeur du site</h2>
+  <p>
+    Ce site est édité dans le cadre du projet LIBTECH, ayant pour objectif de recenser et valoriser des technologies
+    et services favorisant l’inclusion et l’accessibilité numérique.
+  </p>
+
+  <div style="
+    padding:18px 16px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fafafa;
+    margin:12px 0 20px;
+  ">
+    <p><strong>Éditeur :</strong> LIBTECH</p>
+    <p><strong>Responsable de publication :</strong> Maël JEREZ</p>
+    <p>
+      <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br>
+      <strong>E-mail :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>
+    </p>
+  </div>
+
+  <h2>Hébergement</h2>
+  <p>
+    Le site est hébergé par le CREMI, Centre de Ressources Informatiques de l’Université de Bordeaux.
+  </p>
+
+  <div style="
+    padding:18px 16px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fafafa;
+    margin:12px 0 20px;
+  ">
+    <p><strong>Hébergeur :</strong> CREMI — Université de Bordeaux</p>
+    <p>
+      <strong>Adresse du site :</strong>
+      <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">
+        https://mael-jerez.emi.u-bordeaux.fr/libtech/
+      </a>
+    </p>
+    <p><strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France</p>
+  </div>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    Le contenu du site, incluant les textes, la présentation et l’organisation des informations, est protégé par la
+    législation en vigueur. Les ressources et technologies répertoriées demeurent la propriété de leurs éditeurs respectifs.
+  </p>
+  <p>
+    Toute reproduction ou utilisation substantielle du contenu sans autorisation est interdite.
+  </p>
+
+  <h2>Données personnelles</h2>
+  <p>
+    Aucune donnée personnelle n’est collectée automatiquement à des fins commerciales ou publicitaires. Les seules données
+    recueillies sont celles que vous nous transmettez volontairement par e-mail et elles ne sont utilisées que pour répondre
+    à votre message.
+  </p>
+
+  <h2>Responsabilité</h2>
+  <p>
+    Les informations présentes sur ce site sont fournies à titre indicatif. Malgré le soin apporté à leur mise à jour,
+    certaines données peuvent contenir des erreurs ou ne pas être entièrement à jour. Le site peut contenir des liens vers
+    d’autres ressources, dont nous ne contrôlons pas le contenu.
+  </p>
+
+  <h2>Accessibilité</h2>
+  <p>
+    LIBTECH s’engage dans une démarche visant à promouvoir l’accessibilité numérique.
+    Pour signaler une difficulté ou proposer une amélioration, vous pouvez nous écrire à
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+
+  <hr>
+  <p class="meta">© LIBTECH</p>
+      `
     );
   }
+
+    function viewConfidentialite() {
+    viewStaticPage(
+      'Politique de confidentialité',
+      `
+  <p class="meta">Dernière mise à jour : 2025</p>
+
+  <p>
+    Cette politique explique comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs.
+    Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles.
+    Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.
+  </p>
+
+  <p>
+    LIBTECH est un projet universitaire visant à répertorier des technologies inclusives.
+    Vous pouvez consulter l’intégralité du site sans créer de compte et sans transmettre d’informations personnelles.
+  </p>
+
+  <h2>Informations recueillies</h2>
+  <p>
+    Le site ne collecte aucune donnée personnelle à des fins publicitaires ou commerciales.
+    Des informations techniques telles que l’adresse IP, l’heure de connexion ou la page consultée peuvent être enregistrées automatiquement
+    par le serveur de l’Université de Bordeaux pour des raisons de sécurité et de fonctionnement.
+    LIBTECH n’exploite pas activement ces données et ne les utilise pas à des fins d’analyse individuelle.
+  </p>
+  <p>
+    Si vous nous contactez par e-mail, nous recevrons votre adresse e-mail et le contenu de votre message.
+  </p>
+
+  <h2>Méthodes de collecte</h2>
+  <p>
+    Le site ne comporte pas de système d’inscription. Les seules informations personnelles pouvant être collectées
+    sont celles que vous choisissez de nous transmettre volontairement, principalement par e-mail.
+  </p>
+
+  <h2>Finalité de la collecte</h2>
+  <p>
+    Les informations sont utilisées uniquement pour&nbsp;:
+    assurer le fonctionnement et la sécurité du site,
+    répondre aux sollicitations envoyées par e-mail,
+    et respecter les obligations légales liées à l’hébergement universitaire.
+  </p>
+  <p>
+    Aucun traitement marketing ou suivi personnalisé n’est effectué.
+  </p>
+
+  <h2>Stockage et partage des données</h2>
+  <p>
+    Le site est hébergé par le Centre de Ressources Informatiques de l’Université de Bordeaux.
+    Les informations techniques du serveur sont gérées conformément aux pratiques institutionnelles.
+  </p>
+  <p>
+    Les e-mails reçus sont traités uniquement pour répondre aux messages.
+    Aucune donnée n’est vendue, cédée ou partagée avec des tiers, sauf obligation légale.
+  </p>
+
+  <h2>Communication avec les utilisateurs</h2>
+  <p>
+    Nous ne vous contactons que si vous nous écrivez.
+    Les échanges se font exclusivement par e-mail et uniquement pour répondre à vos questions ou remarques.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    Aucun cookie publicitaire n’est utilisé.
+    Seuls des cookies techniques peuvent être présents afin d’assurer le bon fonctionnement du site, sans suivi personnalisé.
+  </p>
+
+  <h2>Vos droits</h2>
+  <p>
+    Si vous nous avez transmis des informations par e-mail, vous pouvez demander leur consultation, modification ou suppression
+    en nous écrivant à :
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+
+  <h2>Mises à jour</h2>
+  <p>
+    Cette politique peut être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales.
+    La version la plus récente est toujours disponible sur cette page.
+  </p>
+
+  <hr>
+  <p class="meta">
+    Pour toute question concernant cette politique de confidentialité, contactez :
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+      `
+    );
+  }
+
 
   function route() {
     const h = location.hash || '#/';
