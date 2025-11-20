@@ -1,4 +1,4 @@
-# Architecture générale
+# Architecture générale du GitHub
  - les fichiers nécessaires au fonctionnement du site sont dans le dossier "Libtech" (le chemin est donc Libtech/Libtech/...)
  - Les fichiers a l'extérieur sont la pour être transférés entre les différents ordinateurs
  - le fichier "A faire" est plus pour l'année en cours pour se souvenir de tous ce qu'il reste a faire.
