@@ -628,7 +628,13 @@ numérique et la conception accessible.</p>
     const v = $('#font').value;
     document.body.style.fontFamily = v === 'system' ? '' : (v === 'serif' ? 'Georgia,serif' : 'ui-monospace, Menlo, Consolas, "Courier New", monospace');
   });
-
+  const backToTop = document.querySelector('.footer-top-pill');
+  if (backToTop) {
+    backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
   /* ============================================================
      DÉMARRAGE DE L’APPLICATION
      ============================================================ */
