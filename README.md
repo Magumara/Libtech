@@ -26,7 +26,7 @@ Il contrôle notamment :
  - l’adaptation de l’interface aux écrans mobiles ou larges.
 Il s’agit du fichier responsable de l’apparence visuelle du site.
 
-## app.js – Fonction et logique du site
+## app.js – Fonctions et logique du site
 
 Ce fichier contient la logique de fonctionnement du site.
 Il assure :
