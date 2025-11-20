@@ -945,7 +945,13 @@ numérique et la conception accessible.</p>
       document.documentElement.style.fontSize = size;
     });
   }
-
+  const backToTopLink = document.querySelector('.footer-top-link');
+  if (backToTopLink) {
+    backToTopLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   // ------------------------------------------------------------
   // 11. Démarrage
   // ------------------------------------------------------------
