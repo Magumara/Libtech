@@ -1,6 +1,6 @@
 /* ===============================
-       VARIABLES & MISE EN PAGE GLOBALES
-       =============================== */
+   VARIABLES & MISE EN PAGE GLOBALES
+   =============================== */
 :root {
     --bg: #f7f8fb;
     --panel: #ffffff;
@@ -9,53 +9,57 @@
     --accent: #2563eb;
     --border: #e3e6ef;
     --shadow: 0 16px 48px rgba(15, 23, 42, .08);
+
     --maxw: 1100px;
     --header: 64px;
     --sidebar: 300px;
     --safe: env(safe-area-inset-bottom, 0px);
+
     --radius: 14px;
     --radius-lg: 18px;
     --tap: 44px;
     --space: 16px;
+
     --fs: clamp(14px, 1.6vw, 16px);
     --fs-sm: clamp(12px, 1.2vw, 14px);
 }
 
+/* Reset léger / base typographique */
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%
+    height: 100%;
 }
 
 body {
     margin: 0;
     color: var(--ink);
     background: var(--bg);
-    font: var(--fs)/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial
+    font: var(--fs)/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial;
 }
 
 a {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 img {
     max-width: 100%;
-    display: block
+    display: block;
 }
 
 input,
 select,
 button {
-    font: inherit
+    font: inherit;
 }
 
 /* ===============================
-             BOUTONS & CHAMPS
-             =============================== */
+   BOUTONS & CHAMPS GÉNÉRIQUES
+   =============================== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -66,16 +70,16 @@ button {
     border-radius: var(--radius);
     background: #f4f7fb;
     color: var(--ink);
-    cursor: pointer
+    cursor: pointer;
 }
 
 .btn:hover {
-    border-color: #cdd4e2
+    border-color: #cdd4e2;
 }
 
 /* ===============================
-             EN-TÊTE FIXE (VISIBLE PARTOUT)
-             =============================== */
+   EN-TÊTE FIXE (VISIBLE PARTOUT)
+   =============================== */
 header {
     position: sticky;
     top: 0;
@@ -85,9 +89,10 @@ header {
     background: color-mix(in oklab, var(--panel) 92%, transparent);
     backdrop-filter: saturate(140%) blur(6px);
     border-bottom: 1px solid var(--border);
-    z-index: 50
+    z-index: 50;
 }
 
+/* Conteneur interne centré */
 .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -96,28 +101,29 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
+/* Logo / marque */
 .brand {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 800
+    font-weight: 800;
 }
 
 .brand img {
     height: 26px;
-    width: auto
+    width: auto;
 }
 
 /* ===============================
-             NAVIGATION PRINCIPALE (ONGLETS)
-             =============================== */
+   NAVIGATION PRINCIPALE (ONGLETS)
+   =============================== */
 nav.topnav {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
 .navlink {
@@ -125,25 +131,26 @@ nav.topnav {
     border-radius: 12px;
     min-height: var(--tap);
     display: inline-flex;
-    align-items: center
+    align-items: center;
 }
 
 .navlink[aria-current="page"] {
     background: #eaf1ff;
-    color: #2563eb
+    color: #2563eb;
 }
 
+/* Espace flexible pour pousser la toolbar à droite */
 .spacer {
-    flex: 1
+    flex: 1;
 }
 
 /* ===============================
-             OUTILS D’EN-TÊTE (RECHERCHE, LANGUE, POLICE)
-             =============================== */
+   OUTILS D’EN-TÊTE (RECHERCHE, LANGUE, POLICE)
+   =============================== */
 .toolbar {
     display: flex;
     gap: 8px;
-    align-items: center
+    align-items: center;
 }
 
 .select,
@@ -153,111 +160,31 @@ nav.topnav {
     border-radius: 12px;
     background: var(--panel);
     min-height: var(--tap);
-    color: var(--ink)
+    color: var(--ink);
 }
 
 /* ===============================
-             PIED DE PAGE
-             =============================== */
-footer {
-    margin-top: 40px;
-    color: #f9fafb;
-}
-
-.footer-wrap {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1.7fr 1.1fr;
-    min-height: 200px;
-    border-radius: 18px 18px 0 0;
-    overflow: hidden;
-    box-shadow: 0 16px 48px rgba(15, 23, 42, 0.18);
-}
-
-.footer-center,
-.footer-right {
-    padding: 24px var(--space);
-    background: #0f6fabe2;
-}
-
-@media (max-width: 900px) {
-    .footer-wrap {
-        grid-template-columns: 1fr;
-    }
-}
-
-.footer-title {
-    font-weight: 700;
-    margin: 0 0 8px;
-    font-size: 15px;
-}
-
-.footer-text {
-    font-size: var(--fs-sm);
-    line-height: 1.5;
-    margin: 0;
-}
-
-.footer-links {
-    margin-top: 10px;
-}
-
-.footer-links a {
-    display: block;
-    font-size: var(--fs-sm);
-    text-decoration: underline;
-    margin-bottom: 4px;
-    color: #f9fafb;
-}
-
-.footer-meta {
-    margin-top: 10px;
-    font-size: var(--fs-sm);
-    opacity: 0.9;
-}
-
-.footer-top-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: var(--fs-sm);
-    text-decoration: underline;
-    margin-top: 12px;
-    color: #f9fafb;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(249, 250, 251, 0.9);
-    background: transparent;
-}
-
-.footer-top-link:hover {
-    background: rgba(249, 250, 251, 0.12);
-}
-
-/* ===============================
-             CONTENEURS DE PAGES
-             =============================== */
+   CONTENEURS DE PAGES
+   =============================== */
 main {
-    min-height: 60vh
+    min-height: 60vh;
 }
 
 .page {
     max-width: var(--maxw);
-    margin: 18px auto;
-    padding: 0 var(--space)
+    margin: 24px auto;
+    padding: 0 var(--space);
 }
 
 /* ===============================
-             RÉPERTOIRE : BARRE HAUTE & DISPOSITION
-             =============================== */
+   RÉPERTOIRE : BARRE HAUTE & DISPOSITION
+   =============================== */
 .repo-topbar {
     display: flex;
     gap: 8px;
     align-items: center;
     margin-bottom: 10px;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
 .pill {
@@ -268,42 +195,45 @@ main {
     color: var(--muted);
     min-height: 28px;
     display: inline-flex;
-    align-items: center
+    align-items: center;
 }
 
+/* Layout général de la zone Répertoire (sidebar + liste) */
 .repo-layout {
     display: grid;
     grid-template-columns: var(--sidebar) 1fr;
-    gap: 16px
+    gap: 16px;
 }
 
-@media (max-width:960px) {
+@media (max-width: 960px) {
     .repo-layout {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 }
 
+/* Panneau latéral de filtres */
 .sidebar {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 12px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, .05)
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
 }
 
+/* Bloc individuel de filtres */
 .facet {
     border-top: 1px dashed var(--border);
-    padding: 10px 0
+    padding: 10px 0;
 }
 
 .facet:first-child {
-    border-top: none
+    border-top: none;
 }
 
 .facet h4 {
     margin: 0 0 8px;
     font-size: var(--fs-sm);
-    color: #475569
+    color: #475569;
 }
 
 .facet .opt {
@@ -313,16 +243,16 @@ main {
     margin: 8px 0;
     min-height: 36px;
     line-height: 1.3;
-    word-break: break-word
+    word-break: break-word;
 }
 
 /* ===============================
-             GRILLE DE CARTES (LISTE DES ÉLÉMENTS)
-             =============================== */
+   GRILLE DE CARTES (LISTE DES ÉLÉMENTS)
+   =============================== */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px
+    gap: 12px;
 }
 
 .card {
@@ -332,85 +262,82 @@ main {
     padding: 14px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
     cursor: pointer;
-    min-height: 120px
+    min-height: 120px;
 }
 
 .card:hover {
     box-shadow: 0 14px 36px rgba(37, 99, 235, .12);
-    border-color: #c7d2fe
+    border-color: #c7d2fe;
 }
 
 .card .title {
     font-style: italic;
-    font-weight: 800
+    font-weight: 800;
 }
 
 .card .desc {
     color: var(--muted);
     font-size: var(--fs-sm);
-    margin-top: 6px
+    margin-top: 6px;
 }
 
 /* ===============================
-             FICHE DÉTAILLÉE (MISE EN PAGE)
-             =============================== */
+   FICHE DÉTAILLÉE (MISE EN PAGE)
+   =============================== */
 .article {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 18px;
-    box-shadow: var(--shadow)
+    box-shadow: var(--shadow);
 }
 
 .hero {
     padding: 22px 22px 10px;
-    border-bottom: 1px solid var(--border)
+    border-bottom: 1px solid var(--border);
 }
 
 .hero h2 {
     margin: 0;
     font-size: clamp(22px, 3.2vw, 28px);
     line-height: 1.15;
-    font-weight: 800
+    font-weight: 800;
 }
 
 .meta {
-    color: var(--muted)
+    color: var(--muted);
 }
 
 .section {
-    padding: 16px 22px
+    padding: 16px 22px;
 }
 
+/* Grille principale de la fiche (description + image / métadonnées) */
 .sheet {
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: 20px;
-    padding: 16px
+    padding: 16px;
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
     .sheet {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 }
-
-.sheet .left {}
-
-.sheet .right {}
 
 .sheet .title {
     text-align: center;
     font-style: italic;
     font-weight: 800;
     font-size: clamp(22px, 3vw, 28px);
-    margin: 6px 0 2px
+    margin: 6px 0 2px;
 }
 
 .sheet .keywords {
     text-align: center;
     color: #9aa3b2;
     font-size: var(--fs-sm);
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 .sheet .line {
@@ -419,16 +346,17 @@ main {
     gap: 12px;
     justify-content: space-between;
     color: #475569;
-    margin: 12px 0 10px
+    margin: 12px 0 10px;
 }
 
 .sheet .label {
-    color: #334155
+    color: #334155;
 }
 
+/* Bloc texte de description principale */
 .sheet .desc h4 {
     margin: 0 0 8px;
-    font-size: 18px
+    font-size: 18px;
 }
 
 .sheet .descbox {
@@ -438,9 +366,10 @@ main {
     color: var(--ink);
     border: 1px solid var(--border);
     background: var(--panel);
-    line-height: 1.5
+    line-height: 1.5;
 }
 
+/* Bloc image + légende */
 .sheet .imagebox {
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -448,80 +377,83 @@ main {
     background: #eef1f6;
     display: grid;
     place-items: center;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .sheet .imagebox img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover
+    object-fit: cover;
 }
 
 .sheet .imgcap {
     color: #a0a7b2;
     font-size: 12px;
     text-align: right;
-    margin-top: 6px
+    margin-top: 6px;
 }
 
+/* Liste de métadonnées (structure, site, langue, etc.) */
 .sheet dl {
-    margin: 0
+    margin: 0;
 }
 
 .sheet dt {
     float: left;
     clear: left;
     width: 120px;
-    color: #5b6676
+    color: #5b6676;
 }
 
 .sheet dd {
-    margin-left: 130px
+    margin-left: 130px;
 }
 
 .sheet dd a {
     color: #2563eb;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 /* ===============================
-             COMPORTEMENT SPÉCIFIQUE À L’ACCUEIL
-             - Masquer la recherche du header uniquement sur l’accueil
-             - Grande barre de recherche centrée
-             =============================== */
+   COMPORTEMENT SPÉCIFIQUE À L’ACCUEIL
+   - Masquer la recherche du header uniquement sur l’accueil
+   - Grande barre de recherche centrée
+   =============================== */
 body.home #q {
-    display: none !important
+    display: none !important;
 }
 
+/* Section héro de l’accueil */
 .home-hero {
     display: grid;
     place-items: center;
     min-height: 58vh;
-    padding: 24px
+    padding: 24px;
 }
 
 .home-search {
     max-width: 720px;
     width: 100%;
-    text-align: center
+    text-align: center;
 }
 
 .home-search h2 {
     font-size: clamp(24px, 3.5vw, 36px);
     margin: 0 0 12px;
-    font-weight: 800
+    font-weight: 800;
 }
 
 .home-search p {
     color: #667085;
-    margin: 0 0 18px
+    margin: 0 0 18px;
 }
 
+/* Barre de recherche centrale (accueil) */
 .home-search .search-wrap {
     display: flex;
     gap: 8px;
-    align-items: center
+    align-items: center;
 }
 
 .home-search input[type="search"] {
@@ -530,17 +462,17 @@ body.home #q {
     border: 1px solid var(--border);
     border-radius: 14px;
     background: #fff;
-    font-size: 16px
+    font-size: 16px;
 }
 
 .home-search button {
     padding: 14px 16px;
-    border-radius: 14px
+    border-radius: 14px;
 }
 
 /* ===============================
-             RÉPERTOIRE : FILTRES REPLIABLES
-             =============================== */
+   RÉPERTOIRE : FILTRES REPLIABLES
+   =============================== */
 .filters-toggle {
     display: inline-flex;
     align-items: center;
@@ -551,25 +483,30 @@ body.home #q {
     background: #eef2f7;
     cursor: pointer;
     margin-bottom: 12px;
-    transition: background .2s ease
+    transition: background .2s ease;
 }
 
 .filters-toggle:hover {
-    background: #e2e8f0
+    background: #e2e8f0;
 }
 
+/* Variation de layout selon que la sidebar est visible ou non */
 .repo-layout.with-filters {
-    grid-template-columns: var(--sidebar) 1fr
+    grid-template-columns: var(--sidebar) 1fr;
 }
 
 .repo-layout.no-filters {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
 }
 
+/* Sidebar masquée */
 .sidebar.hidden {
-    display: none
+    display: none;
 }
 
+/* ===============================
+   PIED DE PAGE (NOUVELLE VERSION)
+   =============================== */
 .footer {
     background: #2a78a6;
     color: #fff;
@@ -581,6 +518,7 @@ body.home #q {
     margin-top: 50px;
 }
 
+/* Colonnes du footer */
 .footer-section h3 {
     margin-bottom: 12px;
     font-size: 22px;
@@ -609,6 +547,26 @@ body.home #q {
     text-decoration: underline;
 }
 
+/* Lien « retour en haut » dans le footer */
+.footer-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-sm);
+    text-decoration: underline;
+    margin-top: 12px;
+    color: #f9fafb;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 250, 251, 0.9);
+    background: transparent;
+}
+
+.footer-top-link:hover {
+    background: rgba(249, 250, 251, 0.12);
+}
+
+/* Bandeau inférieur du site */
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
@@ -616,7 +574,9 @@ body.home #q {
     color: #4a4a4a;
 }
 
-/* Soumettre modal */
+/* ===============================
+   MODALE « SOUMETTRE UNE TECHNOLOGIE »
+   =============================== */
 .modal {
     position: fixed;
     inset: 0;
@@ -631,20 +591,35 @@ body.home #q {
     display: none;
 }
 
+/* Boîte centrale de la modale */
 .modal-box {
     background: white;
     padding: 32px;
     border-radius: 14px;
-    max-width: 420px;
+    max-width: 480px;
     text-align: center;
     box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
 }
 
-.modal-box button {
-    margin-top: 20px;
+/* Boutons de la modale */
+.modal-box button,
+#closeModal {
+    padding: 10px 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-/* Soumettre page – clean layout */
+.modal-box button:hover {
+    opacity: 0.95;
+}
+
+/* ===============================
+   FORMULAIRE « SOUMETTRE » (VERSION ID)
+   =============================== */
 #soumettreForm {
     max-width: 700px;
     margin: 0 auto;
@@ -680,19 +655,16 @@ body.home #q {
     resize: none;
 }
 
-/* Privacy checkbox (full-width) */
+/* Checkbox pleine largeur dans #soumettreForm */
 #soumettreForm label.checkbox-row {
     grid-template-columns: auto 1fr;
     align-items: center;
 }
 
-
-
-/* Modal center */
-.modal-box {
-    max-width: 480px;
-}
-
+/* ===============================
+   FORMULAIRE « SOUMETTRE » (VERSION .soumettre-form)
+   - Variante plus générique, liée à la classe
+   =============================== */
 .soumettre-form {
     max-width: 720px;
     margin: 0 auto 40px;
@@ -729,6 +701,7 @@ body.home #q {
     resize: vertical;
 }
 
+/* Ligne de checkbox dans la version .soumettre-form */
 .checkbox-row {
     display: flex;
     align-items: center;
@@ -744,6 +717,7 @@ body.home #q {
     line-height: 1.4;
 }
 
+/* Ligne de validation (bouton envoyer) */
 .submit-row {
     display: flex;
     justify-content: flex-end;
@@ -762,20 +736,5 @@ body.home #q {
 }
 
 .submit-btn:hover {
-    opacity: 0.95;
-}
-
-.modal-box button,
-#closeModal {
-    padding: 10px 28px;
-    background: var(--accent);
-    color: #fff;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.modal-box button:hover {
     opacity: 0.95;
 }

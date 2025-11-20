@@ -1,113 +1,128 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LIBTECH — Répertoire</title>
     <meta name="description" content="LIBTECH | Répertoire de technologies accessibles" />
     <link rel="icon" href="data:," />
-
+    <!-- Feuille de styles principale du site (mise en forme générale) -->
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Dépendance : PapaParse pour lire le CSV public -->
+    <!-- Bibliothèque PapaParse : utilisée dans app.js pour lire le CSV (Google Sheets) côté navigateur -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
-
 <body id="top">
-    <!-- ==========================
-       EN-TÊTE (logo, onglets, outils)
-       ========================== -->
+    <!-- =========================================
+         EN-TÊTE GLOBAL DU SITE
+         - Contient le logo, la navigation principale
+         - Contient les outils globaux (recherche, langue, police)
+         - Rendu sur toutes les pages
+         ========================================= -->
     <header>
         <div class="wrap">
+            <!-- Logo / marque du site : renvoie toujours vers l'accueil (hash "#/") -->
             <a class="brand" href="#/">
-                <img alt="LIBTECH" src="https://dummyimage.com/120x40/2563eb/ffffff&text=LIBTECH" />
+                <img alt="LIBTECH" src="Libtech/Libtech/images/logo.png" />
             </a>
+
+            <!-- Navigation principale entre les "vues" gérées par le routeur JavaScript (app.js) -->
             <nav class="topnav">
+                <!-- Chaque lien utilise un hash (#/...) pour permettre une navigation monopage (SPA) -->
                 <a class="navlink" href="#/" data-nav>Accueil</a>
                 <a class="navlink" href="#/repertoire" data-nav>Répertoire</a>
-                <a class="navlink" href="#/contact" data-nav>Nous contacter</a>
                 <a class="navlink" href="#/a-propos" data-nav>À propos</a>
                 <a href="#/soumettre" class="navlink" data-nav>Soumettre</a>
             </nav>
+
+            <!-- Espace flexible pour pousser la barre d'outils vers la droite -->
             <div class="spacer"></div>
+
+            <!-- Barre d'outils à droite du header (recherche, langue, police) -->
             <div class="toolbar">
-                <!-- Recherche globale (utilisée dans le répertoire ; masquée sur l’accueil) -->
+                <!-- Champ de recherche globale : utilisé dans la vue Répertoire pour filtrer les éléments -->
                 <input id="q" class="select" placeholder="Rechercher…" aria-label="Recherche globale" />
-                <!-- Sélecteur de langue (actuellement inactif par choix) -->
+
+                <!-- Sélecteur de langue (actuellement non relié à une logique d'i18n dans app.js) -->
                 <select id="lang" class="select" title="Langue" aria-label="Langue">
                     <option value="fr" selected>Français</option>
                     <option value="en">English</option>
                 </select>
-                <!-- Démonstration : changement de police -->
-                <select id="font" class="select" title="Police" aria-label="Police">
-                    <option value="system" selected>Système</option>
-                    <option value="serif">Serif</option>
-                    <option value="mono">Mono</option>
+
+                <!-- Sélecteur de police (ou taille de texte selon l'implémentation dans app.js) -->
+                <select id="font" class="select" title="Taille du texte" aria-label="Taille du texte">
+                    <option value="normal" selected>
+                        <span style="font-size:16px;">AAA</span>
+                    </option>
+                    <option value="grand">
+                        <span style="font-size:24px;">AAA</span>
+                    </option>
+                    <option value="très grand">
+                        <span style="font-size:32px;">AAA</span>
+                    </option>
                 </select>
             </div>
         </div>
     </header>
 
-    <!-- Zone d’affichage des vues -->
+    <!-- =========================================
+         CONTENU PRINCIPAL
+         - Le div #page est une "zone de montage"
+         - app.js injecte ici le HTML correspondant
+           à la vue courante (Accueil, Répertoire, Fiche, etc.)
+         ========================================= -->
     <main>
         <div id="page" class="page"></div>
     </main>
 
-    <!-- ==========================
-       PIED DE PAGE (liens utiles)
-       ========================== -->
-    <footer class="footer">
+    <!-- =========================================
+         PIED DE PAGE GLOBAL
+         - Présent sur toutes les pages
+         - Contient des liens utilitaires et répétition de la navigation
+         - Le lien "Retour en haut" renvoie vers l'ancre #top (id du <body>)
+         ========================================= -->
+    <footer class="footer" style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px 0;">
+        <!-- Bloc d'identité / présentation courte -->
         <div class="footer-section">
             <h3>LibTech</h3>
-            <p>
-                Plateforme collaborative dédiée aux technologies d’assistance,
-                améliorée chaque année par une nouvelle promotion d'étudiants.
-            </p>
+            <p>Plateforme collaborative dédiée aux technologies d’assistance.</p>
         </div>
 
+        <!-- Bloc de liens "ressources" (mentions, accessibilité, plan du site) -->
         <div class="footer-section">
-            <h3>Resources</h3>
+            <h3>Ressources</h3>
             <ul>
-                <li><a href="#">Mentions légales</a></li>
-                <li><a href="#">Politique d’accessibilité (WCAG)</a></li>
-                <li><a href="#">Plan du site</a></li>
+                <li><a href="#/mentions-legales">Mentions légales</a></li>
+                <li><a href="#/accessibilite">Politique d’accessibilité (WCAG)</a></li>
+                <li><a href="#/plan-du-site">Plan du site</a></li>
+                <br>
+                <li><a href="#/contact">Nous contacter</a></li>
+
             </ul>
         </div>
 
+        <!-- Bloc de navigation secondaire (raccourcis vers les principales vues) -->
         <div class="footer-section">
             <h3>Navigation</h3>
-
             <ul>
-                <li><a href="#/" class="navlink footer-link" data-nav>Accueil</a></li>
-                <li><a href="#/a-propos" class="navlink footer-link" data-nav>À propos</a></li>
-                <li><a href="#/repertoire" class="navlink footer-link" data-nav>Répertoire</a></li>
-                <li><a href="#/contact" class="navlink footer-link" data-nav>Nous contacter</a></li>
-                <li><a href="#/soumettre" class="navlink footer-link" data-nav>Soumettre</a></li>
-
+                <!-- Les liens utilisent les mêmes hash que le menu principal -->
+                <li><a href="#/">Accueil</a></li>
+                <li><a href="#/a-propos">À propos</a></li>
+                <li><a href="#/repertoire">Répertoire</a></li>
+                <li><a href="#/soumettre">Soumettre</a></li>
             </ul>
-
-            <p>
-                EN / FR<br>
-                Mode sombre / clair
-            </p>
-
-            <a class="footer-top-link" href="#top">
-                ↑ Retour en haut
-            </a>
+            <!-- Lien de retour rapide en haut de page -->
+            <a class="footer-top-link" href="#top">↑ Retour en haut</a>
         </div>
-
-
-
     </footer>
 
-    <div class="footer-bottom">
-        © 2025 LibTech — Master TECH, Université de Bordeaux
-        <br>Projet en amélioration continue (promotions 2024–2026).
-    </div>
+    <!-- Bandeau inférieur avec la mention de droits d'auteur -->
+    <div class="footer-bottom">© 2025 LibTech — Université de Bordeaux</div>
 
-
+    <!-- Script principal du site
+         - Contient la logique de routage (changement de "vue" selon le hash)
+         - Charge et interprète le CSV (Google Sheets) via PapaParse
+         - Construit les cartes, les filtres, les fiches détaillées dynamiques
+      -->
     <script src="app.js"></script>
 </body>
-
 </html>
