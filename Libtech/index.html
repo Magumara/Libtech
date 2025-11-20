@@ -1,1 +1,113 @@
+<!doctype html>
+<html lang="fr">
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>LIBTECH — Répertoire</title>
+    <meta name="description" content="LIBTECH | Répertoire de technologies accessibles" />
+    <link rel="icon" href="data:," />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Dépendance : PapaParse pour lire le CSV public -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body id="top">
+    <!-- ==========================
+       EN-TÊTE (logo, onglets, outils)
+       ========================== -->
+    <header>
+        <div class="wrap">
+            <a class="brand" href="#/">
+                <img alt="LIBTECH" src="https://dummyimage.com/120x40/2563eb/ffffff&text=LIBTECH" />
+            </a>
+            <nav class="topnav">
+                <a class="navlink" href="#/" data-nav>Accueil</a>
+                <a class="navlink" href="#/repertoire" data-nav>Répertoire</a>
+                <a class="navlink" href="#/contact" data-nav>Nous contacter</a>
+                <a class="navlink" href="#/a-propos" data-nav>À propos</a>
+                <a href="#/soumettre" class="navlink" data-nav>Soumettre</a>
+            </nav>
+            <div class="spacer"></div>
+            <div class="toolbar">
+                <!-- Recherche globale (utilisée dans le répertoire ; masquée sur l’accueil) -->
+                <input id="q" class="select" placeholder="Rechercher…" aria-label="Recherche globale" />
+                <!-- Sélecteur de langue (actuellement inactif par choix) -->
+                <select id="lang" class="select" title="Langue" aria-label="Langue">
+                    <option value="fr" selected>Français</option>
+                    <option value="en">English</option>
+                </select>
+                <!-- Démonstration : changement de police -->
+                <select id="font" class="select" title="Police" aria-label="Police">
+                    <option value="system" selected>Système</option>
+                    <option value="serif">Serif</option>
+                    <option value="mono">Mono</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Zone d’affichage des vues -->
+    <main>
+        <div id="page" class="page"></div>
+    </main>
+
+    <!-- ==========================
+       PIED DE PAGE (liens utiles)
+       ========================== -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>LibTech</h3>
+            <p>
+                Plateforme collaborative dédiée aux technologies d’assistance,
+                améliorée chaque année par une nouvelle promotion d'étudiants.
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Mentions légales</a></li>
+                <li><a href="#">Politique d’accessibilité (WCAG)</a></li>
+                <li><a href="#">Plan du site</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Navigation</h3>
+
+            <ul>
+                <li><a href="#/" class="navlink footer-link" data-nav>Accueil</a></li>
+                <li><a href="#/a-propos" class="navlink footer-link" data-nav>À propos</a></li>
+                <li><a href="#/repertoire" class="navlink footer-link" data-nav>Répertoire</a></li>
+                <li><a href="#/contact" class="navlink footer-link" data-nav>Nous contacter</a></li>
+                <li><a href="#/soumettre" class="navlink footer-link" data-nav>Soumettre</a></li>
+
+            </ul>
+
+            <p>
+                EN / FR<br>
+                Mode sombre / clair
+            </p>
+
+            <a class="footer-top-link" href="#top">
+                ↑ Retour en haut
+            </a>
+        </div>
+
+
+
+    </footer>
+
+    <div class="footer-bottom">
+        © 2025 LibTech — Master TECH, Université de Bordeaux
+        <br>Projet en amélioration continue (promotions 2024–2026).
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
