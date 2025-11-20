@@ -3,4 +3,5 @@ METTRE ICI LES TACHE A FAIRE AU COURS DE L'ANNEE
  - Faire la page "Plan du site"
  - Faire fonctionner le chagement de taille de police (app.js ligne 936, index.html ligne 51) (y'a beaucup de lignes mais beaucoup de commentaires aussi)
  - Potentiellement modifier le bouton retour en haut pour faire comme sur ce site (observez en bas a droite tout en scrollant vers le bas) : https://www.linuxtricks.fr/wiki/html-js-css-creer-un-bouton-vers-le-haut-sur-son-site
+ - mode clair/sombre/auto
 
