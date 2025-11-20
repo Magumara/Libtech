@@ -197,7 +197,10 @@
        SOURCE DES DONNÉES (CSV PUBLIC GOOGLE SHEETS)
        - Si vous changez de feuille : garder les intitulés ou ajuster le mapping COL
        ============================================================ */
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbhCHyINYJMEBbnl_SGBujZOOUB0rw4WnXWirV9dUF_PaktI2oVM0ubMRK6B_Xw/pub?output=csv';
+    /* Source des données : correspond exactement à la feuille intégrée via <iframe>.
+   Lien CSV publié (Google Sheets) : mis à jour à chaque modification.
+   Un paramètre anti‑cache est ajouté dans loadCSV() pour forcer le rafraîchissement. */
+const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbhCHyINYJMEBbnl_SGBujZOOUB0rw4WnXWirV9dUF_PaktI2oVM0ubMRK6B_Xw/pub?output=csv';
 
     /* ============================================================
        FONCTIONS UTILITAIRES (sélecteurs, échappement, formats)
@@ -262,7 +265,8 @@
        ============================================================ */
     async function loadCSV(url){
       return new Promise((resolve,reject)=>{
-        Papa.parse(url,{
+        const bust = url + (url.includes('?') ? '&' : '?') + 'cache=' + Date.now(); // Anti‑cache : force un nouveau téléchargement
+        Papa.parse(bust, {
           header:true, download:true, skipEmptyLines:true,
           complete: res=>{
             // Nettoyage des lignes vides
@@ -350,6 +354,10 @@
           const set = activeTokens.get(label);
           if(cb.checked) set.add(cb.value); else set.delete(cb.value);
           applyFiltersAndRenderCards();
+
+      // Bouton de rafraîchissement manuel : re-télécharge le CSV publié
+      const refreshBtn = document.querySelector('#refreshCsv');
+      if (refreshBtn) refreshBtn.addEventListener('click', ()=> loadCSV(CSV_URL));
         });
       });
 
@@ -458,6 +466,7 @@
         <section class="page">
           <div class="repo-topbar">
             <button id="toggleFilters" class="filters-toggle">☰ Afficher les filtres</button>
+            <button id="refreshCsv" class="btn" title="Recharger les données (Google Sheets)">🔄 Actualiser</button>
             <span class="pill" id="count" aria-live="polite">0</span>
           </div>
           <div class="repo-layout no-filters" id="repoLayout">
@@ -609,7 +618,13 @@
     /* ============================================================
        DÉMARRAGE DE L’APPLICATION
        ============================================================ */
-    (async function init(){ await loadCSV(CSV_URL); })();
+    (async function init(){ await loadCSV(CSV_URL);
+    // Rafraîchit automatiquement si l’onglet redevient visible (la feuille a pu changer)
+    document.addEventListener('visibilitychange', ()=>{
+      if (document.visibilityState === 'visible') {
+        loadCSV(CSV_URL); // re‑télécharge avec anti‑cache
+      }
+    }); })();
   })();
   </script>
 </body>
