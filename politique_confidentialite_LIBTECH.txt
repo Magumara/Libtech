@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politique de confidentialité · LIBTECH</title>
+  <meta name="description" content="Politique de confidentialité du site LIBTECH, répertoire des technologies accessibles.">
+  <style>
+    :root { --max: 800px; --fg:#14213d; --muted:#6b7280; --link:#1d4ed8; --bg:#ffffff; }
+    body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Roboto,Segoe UI,sans-serif;}
+    main{max-width:var(--max);margin:48px auto;padding:0 20px;}
+    h1{font-size:2rem;margin-bottom:12px;}
+    h2{font-size:1.25rem;margin-top:32px;margin-bottom:8px;}
+    p{margin:10px 0;}
+    a{color:var(--link);}
+    .muted{color:var(--muted);}
+    hr{border:0;border-top:1px solid #e5e7eb;margin:32px 0;}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Politique de confidentialité</h1>
+  <p class="muted">Dernière mise à jour : 2025</p>
+
+  <p>
+    Cette politique explique comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs. 
+    Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles. 
+    Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.
+  </p>
+
+  <p>
+    LIBTECH est un projet universitaire visant à répertorier des technologies inclusives. 
+    Vous pouvez consulter l’intégralité du site sans créer de compte et sans transmettre d’informations personnelles.
+  </p>
+
+  <h2>Informations recueillies</h2>
+  <p>
+    Le site ne collecte aucune donnée personnelle à des fins publicitaires ou commerciales. 
+    Des informations techniques telles que l’adresse IP, l’heure de connexion ou la page consultée peuvent être enregistrées automatiquement 
+    par le serveur de l’Université de Bordeaux pour des raisons de sécurité et de fonctionnement. 
+    LIBTECH n’exploite pas activement ces données et ne les utilise pas à des fins d’analyse individuelle.
+  </p>
+  <p>
+    Si vous nous contactez par e-mail, nous recevrons votre adresse e-mail et le contenu de votre message.
+  </p>
+
+  <h2>Méthodes de collecte</h2>
+  <p>
+    Le site ne comporte pas de système d’inscription. Les seules informations personnelles pouvant être collectées 
+    sont celles que vous choisissez de nous transmettre volontairement, principalement par e-mail.
+  </p>
+
+  <h2>Finalité de la collecte</h2>
+  <p>
+    Les informations sont utilisées uniquement pour :
+    assurer le fonctionnement et la sécurité du site, 
+    répondre aux sollicitations envoyées par e-mail,
+    et respecter les obligations légales liées à l’hébergement universitaire.
+  </p>
+  <p>
+    Aucun traitement marketing ou suivi personnalisé n’est effectué.
+  </p>
+
+  <h2>Stockage et partage des données</h2>
+  <p>
+    Le site est hébergé par le Centre de Ressources Informatiques de l’Université de Bordeaux. 
+    Les informations techniques du serveur sont gérées conformément aux pratiques institutionnelles.
+  </p>
+  <p>
+    Les e-mails reçus sont traités uniquement pour répondre aux messages. 
+    Aucune donnée n’est vendue, cédée ou partagée avec des tiers, sauf obligation légale.
+  </p>
+
+  <h2>Communication avec les utilisateurs</h2>
+  <p>
+    Nous ne vous contactons que si vous nous écrivez. 
+    Les échanges se font exclusivement par e-mail et uniquement pour répondre à vos questions ou remarques.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    Aucun cookie publicitaire n’est utilisé. 
+    Seuls des cookies techniques peuvent être présents afin d’assurer le bon fonctionnement du site, sans suivi personnalisé.
+  </p>
+
+  <h2>Vos droits</h2>
+  <p>
+    Si vous nous avez transmis des informations par e-mail, vous pouvez demander leur consultation, modification ou suppression 
+    en nous écrivant à : 
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+
+  <h2>Mises à jour</h2>
+  <p>
+    Cette politique peut être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales. 
+    La version la plus récente est toujours disponible sur cette page.
+  </p>
+
+  <hr>
+  <p class="muted">Pour toute question concernant cette politique de confidentialité, contactez : 
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+</main>
+</body>
+</html>
