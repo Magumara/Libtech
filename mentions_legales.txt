@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentions légales · LIBTECH</title>
+  <meta name="description" content="Mentions légales du site LIBTECH, répertoire des technologies accessibles.">
+  <style>
+    :root { --max: 800px; --fg:#14213d; --muted:#6b7280; --link:#1d4ed8; --bg:#ffffff; }
+    body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Roboto,Segoe UI,sans-serif;}
+    main{max-width:var(--max);margin:48px auto;padding:0 20px;}
+    h1{font-size:2rem;margin-bottom:12px;}
+    h2{font-size:1.25rem;margin-top:32px;margin-bottom:8px;}
+    p{margin:10px 0;}
+    a{color:var(--link);}
+    .muted{color:var(--muted);}
+    hr{border:0;border-top:1px solid #e5e7eb;margin:32px 0;}
+    .block{padding:18px 16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Mentions légales</h1>
+  <p class="muted">LIBTECH · Répertoire des technologies accessibles</p>
+  <p>
+    Adresse du site :
+    <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">
+      https://mael-jerez.emi.u-bordeaux.fr/libtech/
+    </a>
+  </p>
+
+  <h2>Éditeur du site</h2>
+  <p>
+    Ce site est édité dans le cadre du projet LIBTECH, ayant pour objectif de recenser et valoriser des technologies 
+    et services favorisant l’inclusion et l’accessibilité numérique.
+  </p>
+
+  <div class="block">
+    <p><strong>Éditeur :</strong> LIBTECH</p>
+    <p><strong>Responsable de publication :</strong> Maël JEREZ</p>
+    <p>
+      <strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br>
+      <strong>E-mail :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>
+    </p>
+  </div>
+
+  <h2>Hébergement</h2>
+  <p>
+    Le site est hébergé par le CREMI, Centre de Ressources Informatiques de l’Université de Bordeaux.
+  </p>
+
+  <div class="block">
+    <p><strong>Hébergeur :</strong> CREMI — Université de Bordeaux</p>
+    <p>
+      <strong>Adresse du site :</strong>
+      <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">
+        https://mael-jerez.emi.u-bordeaux.fr/libtech/
+      </a>
+    </p>
+    <p><strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France</p>
+  </div>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    Le contenu du site, incluant les textes, la présentation et l’organisation des informations, est protégé par la 
+    législation en vigueur. Les ressources et technologies répertoriées demeurent la propriété de leurs éditeurs respectifs.
+  </p>
+  <p>
+    Toute reproduction ou utilisation substantielle du contenu sans autorisation est interdite.
+  </p>
+
+  <h2>Données personnelles</h2>
+  <p>
+    Aucune donnée personnelle n’est collectée automatiquement à des fins commerciales ou publicitaires. Les seules données 
+    recueillies sont celles que vous nous transmettez volontairement par e-mail et elles ne sont utilisées que pour répondre 
+    à votre message.
+  </p>
+
+  <h2>Responsabilité</h2>
+  <p>
+    Les informations présentes sur ce site sont fournies à titre indicatif. Malgré le soin apporté à leur mise à jour, 
+    certaines données peuvent contenir des erreurs ou ne pas être entièrement à jour. Le site peut contenir des liens vers 
+    d’autres ressources, dont nous ne contrôlons pas le contenu.
+  </p>
+
+  <h2>Accessibilité</h2>
+  <p>
+    LIBTECH s’engage dans une démarche visant à promouvoir l’accessibilité numérique. 
+    Pour signaler une difficulté ou proposer une amélioration, vous pouvez nous écrire à 
+    <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
+  </p>
+
+  <hr>
+  <p class="muted">© LIBTECH</p>
+</main>
+</body>
+</html>
