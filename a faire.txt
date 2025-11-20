@@ -1,5 +1,6 @@
 METTRE ICI LES TACHE A FAIRE AU COURS DE L'ANNEE
 
  - Faire la page "Plan du site"
- - Faire fonctionner le chagement de taille de police (app.js ligne 627, index.html ligne 51)
+ - Faire fonctionner le chagement de taille de police (app.js ligne 936, index.html ligne 51) (y'a beaucup de lignes mais beaucoup de commentaires aussi)
+
 
