@@ -123,11 +123,11 @@ header {
 nav.topnav {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .navlink {
-    padding: 10px 12px;
+    padding: 5px 5px;
     border-radius: 12px;
     min-height: var(--tap);
     display: inline-flex;
@@ -155,7 +155,7 @@ nav.topnav {
 
 .select,
 .toolbar input {
-    padding: 10px 12px;
+    padding: 0px 2px;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: var(--panel);

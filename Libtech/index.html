@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LIBTECH</title>
-    <meta name="description" content="LIBTECH | Répertoire de technologies accessibles" />
-    <link rel="icon" href="data:," />
+    <title>LibTech</title>
+    <meta name="description" content="LibTech" />
+    <link rel="icon" href="images/logo.png" />
     <!-- Feuille de styles principale du site (mise en forme générale) -->
     <link rel="stylesheet" href="style.css" />
     <!-- Bibliothèque PapaParse : utilisée dans app.js pour lire le CSV (Google Sheets) côté navigateur -->
@@ -22,8 +22,8 @@
         <div class="wrap">
             <!-- Logo / marque du site : renvoie toujours vers l'accueil (hash "#/") -->
             <a class="brand" href="#/">
-                <img alt="LIBTECH" src="images/logo.png" />
-                <h3>LIBTECH</h3>
+                <img alt="LibTech" src="images/logo.png" />
+                <h3>LibTech</h3>
             </a>
 
             <!-- Navigation principale entre les "vues" gérées par le routeur JavaScript (app.js) -->
@@ -31,8 +31,10 @@
                 <!-- Chaque lien utilise un hash (#/...) pour permettre une navigation monopage (SPA) -->
                 <a class="navlink" href="#/" data-nav>Accueil</a>
                 <a class="navlink" href="#/repertoire" data-nav>Répertoire</a>
-                <a class="navlink" href="#/a-propos" data-nav>À propos</a>
                 <a href="#/soumettre" class="navlink" data-nav>Soumettre</a>
+                <a class="navlink" href="#/a-propos" data-nav>À propos</a>
+                <a href="#/contact" class="navlink" data-nav>Contact</a>
+
             </nav>
 
             <!-- Espace flexible pour pousser la barre d'outils vers la droite -->
@@ -82,22 +84,16 @@
          - Le lien "Retour en haut" renvoie vers l'ancre #top (id du <body>)
          ========================================= -->
     <footer class="footer" style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px 0;">
-        <!-- Bloc d'identité / présentation courte -->
-        <div class="footer-section">
-            <h3>LibTech</h3>
-            <p>Plateforme collaborative dédiée aux technologies d’assistance.</p>
-        </div>
 
         <!-- Bloc de liens "ressources" (mentions, accessibilité, plan du site) -->
         <div class="footer-section">
             <h3>Ressources</h3>
             <ul>
                 <li><a href="#/mentions-legales">Mentions légales</a></li>
-                <li><a href="#/accessibilite">Politique d’accessibilité (WCAG)</a></li>
+                <li><a href="#/confidentialite">Politiques de confidentialité</a></li>
                 <li><a href="#/plan-du-site">Plan du site</a></li>
                 <br>
-                <li><a href="#/contact">Nous contacter</a></li>
-
+                <a class="footer-top-link" href="#top">↑ Retour en haut</a>
             </ul>
         </div>
 
@@ -107,16 +103,18 @@
             <ul>
                 <!-- Les liens utilisent les mêmes hash que le menu principal -->
                 <li><a href="#/">Accueil</a></li>
-                <li><a href="#/a-propos">À propos</a></li>
-                <li><a href="#/repertoire">Répertoire</a></li>
                 <li><a href="#/soumettre">Soumettre</a></li>
+                <li><a href="#/repertoire">Répertoire</a></li>
+                <li><a href="#/a-propos">À propos</a></li>
+                <li><a href="#/contact">Nous contacter</a></li>
             </ul>
             <!-- Lien de retour rapide en haut de page -->
-            <a class="footer-top-link" href="#top">↑ Retour en haut</a>
+
         </div>
     </footer>
 
     <!-- Bandeau inférieur avec la mention de droits d'auteur -->
+
     <div class="footer-bottom">© 2025 LibTech — Université de Bordeaux</div>
 
     <!-- Script principal du site

@@ -450,11 +450,14 @@
       <section class="page">
         <div class="home-hero">
           <div class="home-search">
-            <h2>LIBTECH — Répertoire des technologies accessibles</h2>
-            <p>Recherchez une techno, un besoin, une langue…</p>
+            <h2>La plateforme de référence pour les technologies d'assistances</h2>
+            <p>LibTech est une plateforme collaborative dédiée aux technologies d’assistance, 
+            développée dans le cadre du Master TECH de l’Université de Bordeaux. 
+            Elle vise à rendre plus accessibles les solutions d’assistance existantes en proposant un répertoire clair, 
+            actualisé et pensé pour tous. </p>
             <form id="homeSearchForm" class="search-wrap" role="search">
               <input id="homeSearchInput" type="search"
-                     placeholder="Rechercher… (min 2 caractères)"
+                     placeholder="Rechercher une technologie d'assistance..."
                      autocomplete="off">
               <button class="btn" type="submit">Rechercher</button>
             </form>
@@ -528,54 +531,71 @@
         </div>
         <div class="section">
           <p>
-            Cette section permet de proposer une nouvelle technologie d’assistance
-            à intégrer dans le répertoire LibTech.
+            Cette section permet de proposer une nouvelle technologie d’assistance à intégrer dans le répertoire LibTech. 
+            Remplissez le formulaire ci-dessous, notre équipe examinera votre dossier et vous répondra le plus rapidement possible.
           </p>
         </div>
 
         <form id="soumettreForm" class="section soumettre-form">
-          <h3>Informations sur la technologie</h3>
+          <h3>Informations sur votre technologie</h3>
 
           <label>
-            Nom de la technologie
+            Nom de la technologie*
             <input name="tech_name" type="text" required>
           </label>
 
           <label>
-            Description
-            <textarea name="tech_desc" rows="4" required></textarea>
+            Description rapide*
+            <input name="tech_desc" type="text" required>
           </label>
 
           <label>
-            Lien vers le site ou la ressource
+            Site web
             <input name="tech_url" type="url">
           </label>
 
           <label>
-            Type de technologie / catégorie
-            <input name="tech_type" type="text">
+            Type de technologie*
+            <input name="tech_type" type="text" placeholder="Application, logiciel, plateforme en ligne, robot..." required>
           </label>
 
           <label>
-            Public visé / bénéficiaires
-            <input name="tech_target" type="text">
+            Public visé*
+            <input name="tech_target" type="text" placeholder = "Tout public, enfant, adulte, personne agée..." required>
           </label>
 
-          <h3>Informations sur l’auteur</h3>
+          <label>
+            Prix*
+            <input name="tech_type" type="text" placeholder="Gratuit, Payant, Sur devis..." required>
+          </label>
 
           <label>
-            Nom / Prénom
+            Disponibilité*
+            <input name="tech_type" type="text" placeholder="Sur le marché, en cours de développement" required>
+          </label>
+
+
+          <h3>Informations sur votre entreprise</h3>
+
+          <label>
+            Nom de l'entreprise*
             <input name="author" type="text" required>
           </label>
 
           <label>
-            Email
-            <input name="email" type="email" required>
+            Nom de contact*
+            <input name="author" type="text" required>
           </label>
 
-          <label class="checkbox-row">
-            <input type="checkbox" name="privacy" required>
-            <span>J'accepte la politique de confidentialité</span>
+
+          <label>
+            Numéro de Siret*
+            <input name="author" type="text" required>
+          </label>
+
+          <label>
+            Email*
+            <input name="email" type="email" required>
           </label>
 
           <div class="submit-row">
@@ -644,30 +664,31 @@
           ">
             <div>
               <h3 style="margin-top:0;">Mission</h3>
-              <p style="white-space:pre-line; line-height:1.6;">
-Notre mission est de faciliter l’accès
-à l’information sur les technologies
-d’assistance
-en proposant un répertoire structuré,
-fiable et simple à explorer.
-Nous souhaitons soutenir les
-étudiants, professionnels, aidants
-et toute personne concernée par le
-handicap dans la découverte d’outils
-adaptés.</p>
+              <p style="white-space; line-height:1.6;">
+                Notre mission est de faciliter l’accès
+                à l’information sur les technologies
+                d’assistance en proposant un répertoire structuré,
+                fiable et simple à explorer.
+                Nous souhaitons soutenir les
+                étudiants, professionnels, aidants
+                et toute personne concernée par le
+                handicap dans la découverte d’outils
+                adaptés.
+              </p>
             </div>
 
             <div>
               <h3 style="margin-top:0;">Vision</h3>
-              <p style="white-space:pre-line; line-height:1.6;">
-Notre vision est de construire une
-ressource vivante et évolutive,
-améliorée chaque année par les
-nouvelles promotions du Master TECH.
-Nous imaginons une plateforme
-ouverte, durable et inclusive,
-qui accompagne l’innovation
-numérique et la conception accessible.</p>
+              <p style="white-space; line-height:1.6;">
+                Notre vision est de construire une
+                ressource vivante et évolutive,
+                améliorée chaque année par les
+                nouvelles promotions du Master TECH.
+                Nous imaginons une plateforme
+                ouverte, durable et inclusive,
+                qui accompagne l’innovation
+                numérique et la conception accessible.
+              </p>
             </div>
           </div>
         </div>
@@ -689,21 +710,16 @@ numérique et la conception accessible.</p>
           color:#ffffff;
         ">
           <section style="max-width:720px; margin:0 auto 32px;">
-            <h3>Équipe actuelle (Promotion 2024–2026)</h3>
+            <h3>Équipe actuelle (Promotion 2025–2026)</h3>
             <p>
-              Le développement de LibTech est assuré par la Promotion 2024–2026 du Master TECH – Université de Bordeaux.
-              Cette promotion contribue à la mise à jour du répertoire, à l’évolution du design du site et à l’amélioration
-              continue de son accessibilité.
+              Le développement de LibTech est assuré par la Promotion 2025-2026 du Master TECH à Université de Bordeaux. 
+              Cette promotion contribue à la mise à jour du répertoire et au changement d’hébergement du site, ainsi qu’à son développement.
             </p>
           </section>
 
           <section style="max-width:720px; margin:0 auto 32px;">
-            <h3>Équipe précédente (Promotion 2023–2025)</h3>
-            <p>
-              La Promotion 2023–2025 a posé les bases du projet LibTech, en définissant la structure initiale du répertoire
-              ainsi que les orientations générales du design et de l’accessibilité.
-              Nous les remercions chaleureusement pour leur contribution essentielle.
-            </p>
+            <h3>Équipe précédente (Promotion 2024–2025)</h3>
+            <p>La promotion 2024-2025 a rendu LibTech fonctionnel. Nous les remercions chaleureusement pour leur contribution essentielle.</p>
           </section>
 
           <section style="max-width:720px; margin:0 auto;">
@@ -1016,12 +1032,12 @@ numérique et la conception accessible.</p>
 
     function viewConfidentialite() {
     viewStaticPage(
-      'Politique de confidentialité',
+      'Politiques de confidentialité',
       `
   <p class="meta">Dernière mise à jour : 2025</p>
 
   <p>
-    Cette politique explique comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs.
+    Ces politiques expliquent comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs.
     Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles.
     Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.
   </p>
@@ -1090,13 +1106,13 @@ numérique et la conception accessible.</p>
 
   <h2>Mises à jour</h2>
   <p>
-    Cette politique peut être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales.
+    Ces politiques peuvent être modifiée à tout moment afin de refléter l’évolution du site ou des obligations légales.
     La version la plus récente est toujours disponible sur cette page.
   </p>
 
   <hr>
   <p class="meta">
-    Pour toute question concernant cette politique de confidentialité, contactez :
+    Pour toute question concernant ces politiques de confidentialité, contactez :
     <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.
   </p>
       `
