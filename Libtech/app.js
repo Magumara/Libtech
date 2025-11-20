@@ -1102,6 +1102,39 @@ numérique et la conception accessible.</p>
       `
     );
   }
+  function viewAccessibilite() {
+    viewStaticPage(
+      'Politique d’accessibilité (WCAG)',
+      `
+      <p>
+        Le site LIBTECH est développé dans une démarche d’accessibilité numérique.
+        L’objectif est de proposer une interface claire, lisible et utilisable par le plus grand nombre
+        de personnes, quels que soient leurs usages et leurs équipements.
+      </p>
+
+      <p>
+        Nous nous inspirons des recommandations du RGAA et des WCAG 2.1, notamment en ce qui concerne :
+      </p>
+      <ul>
+        <li>le contraste des couleurs et la lisibilité des textes ;</li>
+        <li>la navigation au clavier et la structure des titres ;</li>
+        <li>l’utilisation d’alternatives textuelles pour les images ;</li>
+        <li>une organisation cohérente des contenus.</li>
+      </ul>
+
+      <p>
+        Ce site est un projet universitaire en évolution.
+        Si vous rencontrez une difficulté d’accès à un contenu, vous pouvez nous écrire à
+        <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>
+        en précisant la page concernée et le problème rencontré.
+      </p>
+
+      <p>
+        Vos retours nous aident à améliorer progressivement l’accessibilité de LIBTECH.
+      </p>
+      `
+    );
+  }
 
 
   function route() {
@@ -1148,7 +1181,9 @@ numérique et la conception accessible.</p>
       viewConfidentialite();
       return;
     }
-
+ if (h === '#/accessibilite') {
+      viewAccessibilite();
+      return;
     // Fallback : accueil
     viewHome();
   }
