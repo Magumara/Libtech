@@ -863,6 +863,11 @@ numérique et la conception accessible.</p>
 
   function route() {
     const h = location.hash || '#/';
+    if (h === '#top') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return; // NE PAS charger d'autre vue
+   }
+
     setActiveNav();
 
     const mDetail = h.match(/^#\/repertoire\/([a-z0-9_.-]+)/i);
