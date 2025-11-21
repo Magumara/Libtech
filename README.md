@@ -36,9 +36,8 @@ Il assure :
  - l’interprétation des colonnes et la création des filtres,
  - la génération dynamique de l'affichages des techs (appelé "cards" dans le code)(facile a retenir : ça ressemble a des cartes visuellement) et des fiches détaillées (une fois que tu clique sur les cards),
  - la gestion des interactions (filtres, recherche, affichage des détails),
- - la gestion de la navigation interne via le hash dans l’URL,
+ - la gestion de la navigation interne via le hash(#) dans l’URL,
  - la mise à jour automatique de la vue en fonction de l’état de l’application.
-Il s’agit du fichier qui exécute la logique métier, la récupération des données et toute la partie dynamique.
 
 ### basiquement (p'tite métaphore du corp humain):
  - index.html = squelette
