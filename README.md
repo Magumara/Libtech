@@ -44,3 +44,7 @@ Il s’agit du fichier qui exécute la logique métier, la récupération des do
  - index.html = squelette
  - app.js = muscles et cerveau
  - style.css = maquillage, vêtements
+
+### aide de comprehension de l'architecture du site
+
+N'hesitez pas a faire "ctrl+maj+C" puis a survoler la page avec le curseur lorsque vous êtes sur le site de LibTech pour savoir a quelle ligne correspond chaque zone (la ligne peut se trouver dans le HTML ou dans le JavaScript)
