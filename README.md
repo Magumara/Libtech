@@ -47,4 +47,4 @@ Il s’agit du fichier qui exécute la logique métier, la récupération des do
 
 ### aide de comprehension de l'architecture du site
 
-N'hesitez pas a faire "ctrl+maj+C" puis a survoler la page avec le curseur lorsque vous êtes sur le site de LibTech pour savoir a quelle ligne correspond chaque zone (la ligne peut se trouver dans le HTML ou dans le JavaScript)
+N'hesitez pas a faire "ctrl+maj+C" puis a survoler la page avec le curseur lorsque vous êtes sur le site de LibTech pour savoir a quelle ligne correspond chaque zone (la ligne peut se trouver dans le HTML ou dans le JavaScript). Vous pouvez ensuite faire "Ctrl+F" sur votre logiciel de traitement de texte pour retrouver l'emplacement de la ligne.
