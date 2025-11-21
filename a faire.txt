@@ -1,9 +1,9 @@
 METTRE ICI LES TACHE MANQUANTES A REALISER.
 
  - Faire la page "Plan du site"
- - Faire fonctionner le chagement de taille de police (app.js ligne 936, index.html ligne 51) (y'a beaucup de lignes mais beaucoup de commentaires aussi)
+ - Faire fonctionner le chagement de taille de police (app.js ligne 1433, index.html ligne 41) (y'a beaucup de lignes mais beaucoup de commentaires aussi)
  - Potentiellement modifier le bouton retour en haut pour faire comme sur ce site (observez en bas a droite tout en scrollant vers le bas) : https://www.linuxtricks.fr/wiki/html-js-css-creer-un-bouton-vers-le-haut-sur-son-site
  - mode clair/sombre/auto
- - réparer la Barre de recherche (ne fonctionne que sur accueil et répertoire)
+ - réparer la Barre de recherche (ne fonctionne que sur accueil et répertoire) (je pense faut qu'elle redirige vers répertoire lorsque l'on appuie sur entrée)(ptet s'inspirer du fonctionnement de la barre de recherche de accueil(app.js ligne 504))
  - faire en sorte que l'on soit de base en haut du site et ne pas avoir a scroll lorque l'on clique sur un lien en pas de page
  - 
