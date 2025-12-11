@@ -24,7 +24,7 @@
     --fs-sm: clamp(12px, 1.2vw, 14px);
 }
 
-/* Reset léger / base typographique */
+/* Reset lĆ©ger / base typographique */
 * {
     box-sizing: border-box;
 }
@@ -58,7 +58,7 @@ button {
 }
 
 /* ===============================
-   BOUTONS & CHAMPS GÉNÉRIQUES
+   BOUTONS & CHAMPS GĆ‰NĆ‰RIQUES
    =============================== */
 .btn {
     display: inline-flex;
@@ -77,8 +77,17 @@ button {
     border-color: #cdd4e2;
 }
 
+/* Lang switch: show/hide language variants */
+html[lang="fr"] .i18n-en {
+    display: none;
+}
+
+html[lang="en"] .i18n-fr {
+    display: none;
+}
+
 /* ===============================
-   EN-TÊTE FIXE (VISIBLE PARTOUT)
+   EN-TĆTE FIXE (VISIBLE PARTOUT)
    =============================== */
 header {
     position: sticky;
@@ -92,7 +101,7 @@ header {
     z-index: 50;
 }
 
-/* Conteneur interne centré */
+/* Conteneur interne centrĆ© */
 .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -139,13 +148,13 @@ nav.topnav {
     color: #2563eb;
 }
 
-/* Espace flexible pour pousser la toolbar à droite */
+/* Espace flexible pour pousser la toolbar Ć  droite */
 .spacer {
     flex: 1;
 }
 
 /* ===============================
-   OUTILS D’EN-TÊTE (RECHERCHE, LANGUE, POLICE)
+   OUTILS Dā€™EN-TĆTE (RECHERCHE, LANGUE, POLICE)
    =============================== */
 .toolbar {
     display: flex;
@@ -177,7 +186,7 @@ main {
 }
 
 /* ===============================
-   RÉPERTOIRE : BARRE HAUTE & DISPOSITION
+   RĆ‰PERTOIRE : BARRE HAUTE & DISPOSITION
    =============================== */
 .repo-topbar {
     display: flex;
@@ -198,7 +207,7 @@ main {
     align-items: center;
 }
 
-/* Layout général de la zone Répertoire (sidebar + liste) */
+/* Layout gĆ©nĆ©ral de la zone RĆ©pertoire (sidebar + liste) */
 .repo-layout {
     display: grid;
     grid-template-columns: var(--sidebar) 1fr;
@@ -211,7 +220,7 @@ main {
     }
 }
 
-/* Panneau latéral de filtres */
+/* Panneau latĆ©ral de filtres */
 .sidebar {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -247,7 +256,7 @@ main {
 }
 
 /* ===============================
-   GRILLE DE CARTES (LISTE DES ÉLÉMENTS)
+   GRILLE DE CARTES (LISTE DES Ć‰LĆ‰MENTS)
    =============================== */
 .grid {
     display: grid;
@@ -281,7 +290,7 @@ main {
     margin-top: 6px;
 }
 
-/* Image en haut de chaque carte (aperçu de la technologie) */
+/* Image en haut de chaque carte (aperĆ§u de la technologie) */
 .card-thumb {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -328,7 +337,7 @@ main {
 }
 
 /* ===============================
-   FICHE DÉTAILLÉE (MISE EN PAGE)
+   FICHE DĆ‰TAILLĆ‰E (MISE EN PAGE)
    =============================== */
 .article {
     background: var(--panel);
@@ -357,7 +366,7 @@ main {
     padding: 16px 22px;
 }
 
-/* Grille principale de la fiche (description + image / métadonnées) */
+/* Grille principale de la fiche (description + image / mĆ©tadonnĆ©es) */
 .sheet {
     display: grid;
     grid-template-columns: 1fr 380px;
@@ -415,7 +424,7 @@ main {
     line-height: 1.5;
 }
 
-/* Bloc image + légende */
+/* Bloc image + lĆ©gende */
 .sheet .imagebox {
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -440,7 +449,7 @@ main {
     margin-top: 6px;
 }
 
-/* Liste de métadonnées (structure, site, langue, etc.) */
+/* Liste de mĆ©tadonnĆ©es (structure, site, langue, etc.) */
 .sheet dl {
     margin: 0;
 }
@@ -462,15 +471,15 @@ main {
 }
 
 /* ===============================
-   COMPORTEMENT SPÉCIFIQUE À L’ACCUEIL
-   - Masquer la recherche du header uniquement sur l’accueil
-   - Grande barre de recherche centrée
+   COMPORTEMENT SPĆ‰CIFIQUE Ć€ Lā€™ACCUEIL
+   - Masquer la recherche du header uniquement sur lā€™accueil
+   - Grande barre de recherche centrĆ©e
    =============================== */
 body.home #q {
     display: none !important;
 }
 
-/* Section héro de l’accueil */
+/* Section hĆ©ro de lā€™accueil */
 .home-hero {
     display: grid;
     place-items: center;
@@ -517,7 +526,7 @@ body.home #q {
 }
 
 /* ===============================
-   RÉPERTOIRE : FILTRES REPLIABLES
+   RĆ‰PERTOIRE : FILTRES REPLIABLES
    =============================== */
 .filters-toggle {
     display: inline-flex;
@@ -545,7 +554,7 @@ body.home #q {
     grid-template-columns: 1fr;
 }
 
-/* Sidebar masquée */
+/* Sidebar masquĆ©e */
 .sidebar.hidden {
     display: none;
 }
@@ -593,7 +602,7 @@ body.home #q {
     text-decoration: underline;
 }
 
-/* Lien « retour en haut » dans le footer */
+/* Lien Ā« retour en haut Ā» dans le footer */
 .footer-top-link {
     display: inline-flex;
     align-items: center;
@@ -612,7 +621,7 @@ body.home #q {
     background: rgba(249, 250, 251, 0.12);
 }
 
-/* Bandeau inférieur du site */
+/* Bandeau infĆ©rieur du site */
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
@@ -621,7 +630,7 @@ body.home #q {
 }
 
 /* ===============================
-   MODALE « SOUMETTRE UNE TECHNOLOGIE »
+   MODALE Ā« SOUMETTRE UNE TECHNOLOGIE Ā»
    =============================== */
 .modal {
     position: fixed;
@@ -637,7 +646,7 @@ body.home #q {
     display: none;
 }
 
-/* Boîte centrale de la modale */
+/* BoĆ®te centrale de la modale */
 .modal-box {
     background: white;
     padding: 32px;
@@ -664,7 +673,7 @@ body.home #q {
 }
 
 /* ===============================
-   FORMULAIRE « SOUMETTRE » (VERSION ID)
+   FORMULAIRE Ā« SOUMETTRE Ā» (VERSION ID)
    =============================== */
 #soumettreForm {
     max-width: 700px;
@@ -708,8 +717,8 @@ body.home #q {
 }
 
 /* ===============================
-   FORMULAIRE « SOUMETTRE » (VERSION .soumettre-form)
-   - Variante plus générique, liée à la classe
+   FORMULAIRE Ā« SOUMETTRE Ā» (VERSION .soumettre-form)
+   - Variante plus gĆ©nĆ©rique, liĆ©e Ć  la classe
    =============================== */
 .soumettre-form {
     max-width: 720px;
