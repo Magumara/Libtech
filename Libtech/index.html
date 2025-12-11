@@ -1,57 +1,43 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LibTech</title>
     <meta name="description" content="LibTech" />
     <link rel="icon" href="images/logo.png" />
-    <!-- Feuille de styles principale du site (mise en forme générale) -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Bibliothèque PapaParse : utilisée dans app.js pour lire le CSV (Google Sheets) côté navigateur -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
+
 <body id="top">
-    <!-- =========================================
-         EN-TÊTE GLOBAL DU SITE
-         - Contient le logo, la navigation principale
-         - Contient les outils globaux (recherche, langue, police)
-         - Rendu sur toutes les pages
-         ========================================= -->
     <header>
         <div class="wrap">
-            <!-- Logo / marque du site : renvoie toujours vers l'accueil (hash "#/") -->
             <a class="brand" href="#/">
                 <img alt="LibTech" src="images/logo.png" />
                 <h3>LibTech</h3>
             </a>
 
-            <!-- Navigation principale entre les "vues" gérées par le routeur JavaScript (app.js) -->
             <nav class="topnav">
-                <!-- Chaque lien utilise un hash (#/...) pour permettre une navigation monopage (SPA) -->
-                <a class="navlink" href="#/" data-nav>Accueil</a>
-                <a class="navlink" href="#/repertoire" data-nav>Répertoire</a>
-                <a href="#/soumettre" class="navlink" data-nav>Soumettre</a>
-                <a class="navlink" href="#/a-propos" data-nav>À propos</a>
-                <a href="#/contact" class="navlink" data-nav>Contact</a>
-
+                <a class="navlink" href="#/" data-nav data-i18n="nav_home">Accueil</a>
+                <a class="navlink" href="#/repertoire" data-nav data-i18n="nav_directory">Répertoire</a>
+                <a href="#/soumettre" class="navlink" data-nav data-i18n="nav_submit">Soumettre</a>
+                <a class="navlink" href="#/a-propos" data-nav data-i18n="nav_about">À propos</a>
+                <a href="#/contact" class="navlink" data-nav data-i18n="nav_contact">Contact</a>
             </nav>
 
-            <!-- Espace flexible pour pousser la barre d'outils vers la droite -->
             <div class="spacer"></div>
 
-            <!-- Barre d'outils à droite du header (recherche, langue, police) -->
             <div class="toolbar">
-                <!-- Champ de recherche globale : utilisé dans la vue Répertoire pour filtrer les éléments -->
-                <input id="q" class="select" placeholder="Rechercher…" aria-label="Recherche globale" />
+                <input id="q" class="select" placeholder="Rechercher…" aria-label="Recherche globale"
+                    data-i18n-placeholder="search_global" />
 
-                <!-- Sélecteur de langue (actuellement non relié à une logique d'i18n dans app.js) -->
                 <select id="lang" class="select" title="Langue" aria-label="Langue">
-                    <option value="fr" selected>Français</option>
+                    <option value="fr">Français</option>
                     <option value="en">English</option>
                 </select>
 
-                <!-- Sélecteur de police (ou taille de texte selon l'implémentation dans app.js) -->
                 <select id="font" class="select" title="Taille du texte" aria-label="Taille du texte">
                     <option value="normal" selected>
                         <span style="font-size:16px;">AAA</span>
@@ -67,61 +53,52 @@
         </div>
     </header>
 
-    <!-- =========================================
-         CONTENU PRINCIPAL
-         - Le div #page est une "zone de montage"
-         - app.js injecte ici le HTML correspondant
-           à la vue courante (Accueil, Répertoire, Fiche, etc.)
-         ========================================= -->
     <main>
         <div id="page" class="page"></div>
     </main>
 
-    <!-- =========================================
-         PIED DE PAGE GLOBAL
-         - Présent sur toutes les pages
-         - Contient des liens utilitaires et répétition de la navigation
-         - Le lien "Retour en haut" renvoie vers l'ancre #top (id du <body>)
-         ========================================= -->
     <footer class="footer" style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px 0;">
 
-        <!-- Bloc de liens "ressources" (mentions, accessibilité, plan du site) -->
         <div class="footer-section">
-            <h3>Ressources</h3>
+            <h3 data-i18n="footer_resources">Ressources</h3>
             <ul>
-                <li><a href="#/mentions-legales">Mentions légales</a></li>
-                <li><a href="#/confidentialite">Politiques de confidentialité</a></li>
-                <li><a href="#/plan-du-site">Plan du site</a></li>
+                <li>
+                    <a href="#/mentions-legales" data-i18n="footer_mentions">
+                        Mentions légales
+                    </a>
+                </li>
+                <li>
+                    <a href="#/confidentialite" data-i18n="footer_privacy">
+                        Politiques de confidentialité
+                    </a>
+                </li>
+                <li>
+                    <a href="#/plan-du-site" data-i18n="footer_sitemap">
+                        Plan du site
+                    </a>
+                </li>
                 <br>
-                <a class="footer-top-link" href="#top">↑ Retour en haut</a>
+                <a class="footer-top-link" href="#top" data-i18n="back_to_top">
+                    ↑ Retour en haut
+                </a>
             </ul>
         </div>
 
-        <!-- Bloc de navigation secondaire (raccourcis vers les principales vues) -->
         <div class="footer-section">
-            <h3>Navigation</h3>
+            <h3 data-i18n="footer_navigation">Navigation</h3>
             <ul>
-                <!-- Les liens utilisent les mêmes hash que le menu principal -->
-                <li><a href="#/">Accueil</a></li>
-                <li><a href="#/soumettre">Soumettre</a></li>
-                <li><a href="#/repertoire">Répertoire</a></li>
-                <li><a href="#/a-propos">À propos</a></li>
-                <li><a href="#/contact">Nous contacter</a></li>
+                <li><a href="#/" data-i18n="nav_home">Accueil</a></li>
+                <li><a href="#/soumettre" data-i18n="nav_submit">Soumettre</a></li>
+                <li><a href="#/repertoire" data-i18n="nav_directory">Répertoire</a></li>
+                <li><a href="#/a-propos" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#/contact" data-i18n="footer_contact">Nous contacter</a></li>
             </ul>
-            <!-- Lien de retour rapide en haut de page -->
-
         </div>
     </footer>
 
-    <!-- Bandeau inférieur avec la mention de droits d'auteur -->
-
     <div class="footer-bottom">© 2025 LibTech — Université de Bordeaux</div>
 
-    <!-- Script principal du site
-         - Contient la logique de routage (changement de "vue" selon le hash)
-         - Charge et interprète le CSV (Google Sheets) via PapaParse
-         - Construit les cartes, les filtres, les fiches détaillées dynamiques
-      -->
     <script src="app.js"></script>
 </body>
+
 </html>
