@@ -38,17 +38,15 @@
                     <option value="en">English</option>
                 </select>
 
-                <select id="font" class="select" title="Taille du texte" aria-label="Taille du texte">
-                    <option value="normal" selected>
-                        <span style="font-size:16px;">AAA</span>
-                    </option>
-                    <option value="grand">
-                        <span style="font-size:24px;">AAA</span>
-                    </option>
-                    <option value="très grand">
-                        <span style="font-size:32px;">AAA</span>
-                    </option>
+                <select id="font" class="select font-size-select" title="Taille du texte"
+                    aria-label="Taille du texte">
+                    <option value="normal" selected>A</option>
+                    <option value="grand">A+</option>
+                    <option value="très grand">A++</option>
                 </select>
+
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Activer le mode sombre"
+                    title="Activer le mode sombre">☾</button>
             </div>
         </div>
     </header>
@@ -72,20 +70,11 @@
                         Politiques de confidentialité
                     </a>
                 </li>
-                <li>
-                    <a href="#/plan-du-site" data-i18n="footer_sitemap">
-                        Plan du site
-                    </a>
-                </li>
-                <br>
-                <a class="footer-top-link" href="#top" data-i18n="back_to_top">
-                    ↑ Retour en haut
-                </a>
             </ul>
         </div>
 
         <div class="footer-section">
-            <h3 data-i18n="footer_navigation">Navigation</h3>
+            <h3 data-i18n="footer_sitemap">Plan du site</h3>
             <ul>
                 <li><a href="#/" data-i18n="nav_home">Accueil</a></li>
                 <li><a href="#/soumettre" data-i18n="nav_submit">Soumettre</a></li>
@@ -98,6 +87,206 @@
 
     <div class="footer-bottom">© 2025 LibTech — Université de Bordeaux</div>
 
+    <a class="footer-top-link" href="#top" data-i18n="back_to_top" aria-label="Retour haut" aria-hidden="true" tabindex="-1">
+        ↑ Retour haut
+    </a>
+
+    <template id="view-home">
+        <section class="page">
+            <div class="home-hero">
+                <div class="home-search">
+                    <h2 data-lang="fr">La plateforme de référence pour les technologies d'assistance</h2>
+                    <h2 data-lang="en">The reference platform for assistive technologies</h2>
+                    <p data-lang="fr">LibTech est une plateforme collaborative dédiée aux technologies d’assistance, développée dans le cadre du Master TECH de l’Université de Bordeaux. Elle vise à rendre plus accessibles les solutions d’assistance existantes en proposant un répertoire clair, actualisé et pensé pour tous.</p>
+                    <p data-lang="en">LibTech is a collaborative platform dedicated to assistive technologies, developed within the TECH Master at the University of Bordeaux. It aims to make existing assistive solutions more accessible by offering a clear, up-to-date directory designed for everyone.</p>
+                    <form id="homeSearchForm" class="search-wrap" role="search">
+                        <input id="homeSearchInput" type="search" data-placeholder-fr="Rechercher une technologie d'assistance..." data-placeholder-en="Search for an assistive technology..." autocomplete="off">
+                        <button class="btn" type="submit"><span data-lang="fr">Rechercher</span><span data-lang="en">Search</span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-contact">
+        <section class="page article">
+            <div class="hero">
+                <h2 data-lang="fr">Contact</h2>
+                <h2 data-lang="en">Contact</h2>
+            </div>
+            <div class="section">
+                <p data-lang="fr">Où que vous soyez, si vous avez une question sur LibTech, une suggestion de technologie d’assistance ou une correction à proposer, n’hésitez pas à nous écrire. Nous serons ravis d’échanger avec vous.</p>
+                <p data-lang="en">Wherever you are, if you have a question about LibTech, a suggestion for an assistive technology or a correction to propose, feel free to contact us. We will be happy to hear from you.</p>
+            </div>
+            <div class="contact-card">
+                <h3 data-lang="fr">Contact</h3>
+                <h3 data-lang="en">Contact</h3>
+                <p data-lang="fr">Nous vous invitons à nous contacter par e-mail en utilisant le bouton ci-dessous. L’équipe LibTech vous répondra dans les meilleurs délais.</p>
+                <p data-lang="en">You can contact us by e-mail using the button below. The LibTech team will get back to you as soon as possible.</p>
+                <a class="contact-button" href="mailto:promom2sc@gmail.com"><span data-lang="fr">Nous écrire</span><span data-lang="en">Write to us</span></a>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-submit">
+        <section class="page article">
+            <div class="hero">
+                <h2 data-lang="fr">Soumettre une technologie</h2>
+                <h2 data-lang="en">Submit a technology</h2>
+            </div>
+            <div class="section">
+                <p data-lang="fr">Cette section permet de proposer une nouvelle technologie d’assistance à intégrer dans le répertoire LibTech. Remplissez le formulaire ci-dessous, notre équipe examinera votre dossier et vous répondra le plus rapidement possible.</p>
+                <p data-lang="en">Use this section to propose a new assistive technology to be added to the LibTech directory. Fill in the form below and our team will review your submission and get back to you as soon as possible.</p>
+            </div>
+            <form id="soumettreForm" class="section soumettre-form">
+                <h3 data-lang="fr">Informations sur votre technologie</h3>
+                <h3 data-lang="en">Information about your technology</h3>
+                <label><span data-lang="fr">Nom de la technologie*</span><span data-lang="en">Name of the technology*</span><input name="tech_name" type="text" required></label>
+                <label><span data-lang="fr">Description rapide*</span><span data-lang="en">Short description*</span><input name="tech_desc" type="text" required></label>
+                <label><span data-lang="fr">Site web</span><span data-lang="en">Website</span><input name="tech_url" type="url"></label>
+                <label><span data-lang="fr">Type de technologie*</span><span data-lang="en">Type of technology*</span><input name="tech_type" type="text" data-placeholder-fr="Application, logiciel, plateforme en ligne, robot..." data-placeholder-en="App, software, online platform, robot..." required></label>
+                <label><span data-lang="fr">Public visé*</span><span data-lang="en">Target users*</span><input name="tech_target" type="text" data-placeholder-fr="Tout public, enfant, adulte, personne âgée..." data-placeholder-en="General public, children, adults, older adults..." required></label>
+                <label><span data-lang="fr">Prix*</span><span data-lang="en">Price*</span><input name="tech_price" type="text" data-placeholder-fr="Gratuit, payant, sur devis..." data-placeholder-en="Free, paid, on quotation..." required></label>
+                <label><span data-lang="fr">Disponibilité*</span><span data-lang="en">Availability*</span><input name="tech_availability" type="text" data-placeholder-fr="Sur le marché, en cours de développement" data-placeholder-en="On the market, in development..." required></label>
+                <h3 data-lang="fr">Informations sur votre entreprise</h3>
+                <h3 data-lang="en">Information about your company</h3>
+                <label><span data-lang="fr">Nom de l'entreprise*</span><span data-lang="en">Company name*</span><input name="company_name" type="text" required></label>
+                <label><span data-lang="fr">Nom de contact*</span><span data-lang="en">Contact person*</span><input name="contact_name" type="text" required></label>
+                <label><span data-lang="fr">Numéro de Siret*</span><span data-lang="en">SIRET number*</span><input name="siret" type="text" required></label>
+                <label><span>Email*</span><input name="email" type="email" required></label>
+                <div class="submit-row"><button class="btn submit-btn" type="submit"><span data-lang="fr">Envoyer</span><span data-lang="en">Send</span></button></div>
+            </form>
+            <div id="soumettreModal" class="modal hidden">
+                <div class="modal-box">
+                    <p><strong data-lang="fr">Merci ! Votre technologie a bien été soumise. L’équipe LibTech vous contactera si nécessaire.</strong><strong data-lang="en">Thank you! Your technology has been submitted. The LibTech team will contact you if necessary.</strong></p>
+                    <button id="closeModal" class="btn"><span data-lang="fr">Fermer</span><span data-lang="en">Close</span></button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-about">
+        <section class="page article">
+            <div class="hero"><h2><span data-lang="fr">À propos</span><span data-lang="en">About</span></h2></div>
+            <div class="section">
+                <p data-lang="fr">LibTech est une plateforme collaborative dédiée aux technologies d’assistance, développée dans le cadre du Master TECH de l’Université de Bordeaux. Elle vise à rendre plus accessibles les solutions d’assistance existantes en proposant un répertoire clair, actualisé et pensé pour tous.</p>
+                <p data-lang="en">LibTech is a collaborative platform dedicated to assistive technologies, developed within the TECH Master at the University of Bordeaux. It aims to make existing assistive solutions more accessible by offering a clear, up-to-date directory designed for everyone.</p>
+            </div>
+            <div class="about-highlight">
+                <div class="about-columns">
+                    <div>
+                        <h3>Mission</h3>
+                        <p data-lang="fr">Notre mission est de faciliter l’accès à l’information sur les technologies d’assistance en proposant un répertoire structuré, fiable et simple à explorer. Nous souhaitons soutenir les étudiants, professionnels, aidants et toute personne concernée par le handicap dans la découverte d’outils adaptés.</p>
+                        <p data-lang="en">Our mission is to make information about assistive technologies easier to access by offering a structured, reliable and easy-to-explore directory. We aim to support students, professionals, caregivers and anyone concerned by disability in finding appropriate tools.</p>
+                    </div>
+                    <div>
+                        <h3>Vision</h3>
+                        <p data-lang="fr">Notre vision est de construire une ressource vivante et évolutive, améliorée chaque année par les nouvelles promotions du Master TECH. Nous imaginons une plateforme ouverte, durable et inclusive, qui accompagne l’innovation numérique et la conception accessible.</p>
+                        <p data-lang="en">Our vision is to build a living, evolving resource, improved each year by new cohorts of the TECH Master. We imagine an open, sustainable and inclusive platform that accompanies digital innovation and accessible design.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h3 data-lang="fr">Équipe et collaboration</h3><h3 data-lang="en">Team and collaboration</h3>
+                <p data-lang="fr">Le projet LibTech est porté par les étudiants du parcours Technologies, Ergonomie, Cognition, Handicap (TECH). Chaque promotion contribue à la mise à jour du répertoire, au design du site et à l’accessibilité des contenus. Merci aux enseignants et aux partenaires pour leur accompagnement.</p>
+                <p data-lang="en">The LibTech project is carried by students of the Technologies, Ergonomics, Cognition, Disability (TECH) track. Each cohort contributes to updating the directory, designing the site and improving content accessibility. We thank the lecturers and partners for their support.</p>
+            </div>
+            <div class="about-team">
+                <section>
+                    <h3 data-lang="fr">Équipe actuelle (Promotion 2025–2026)</h3><h3 data-lang="en">Current team (Class of 2025–2026)</h3>
+                    <p data-lang="fr">Le développement de LibTech est assuré par la Promotion 2025–2026 du Master TECH à Université de Bordeaux. Cette promotion contribue à la mise à jour du répertoire et au changement d’hébergement du site, ainsi qu’à son développement.</p>
+                    <p data-lang="en">The development of LibTech is currently ensured by the 2025–2026 cohort of the TECH Master at the University of Bordeaux. This cohort contributes to updating the directory, changing the site’s hosting and further developing the platform.</p>
+                </section>
+                <section>
+                    <h3 data-lang="fr">Équipe précédente (Promotion 2024–2025)</h3><h3 data-lang="en">Previous team (Class of 2024–2025)</h3>
+                    <p data-lang="fr">La promotion 2024–2025 a rendu LibTech fonctionnel. Nous les remercions chaleureusement pour leur contribution essentielle.</p>
+                    <p data-lang="en">The 2024–2025 cohort made LibTech operational. We warmly thank them for their essential contribution.</p>
+                </section>
+                <section>
+                    <h3 data-lang="fr">Encadrement</h3><h3 data-lang="en">Supervision</h3>
+                    <p data-lang="fr">Le projet est encadré par l’équipe pédagogique du Master TECH, avec le soutien des enseignant·e·s et partenaires professionnels.</p>
+                    <p data-lang="en">The project is supervised by the TECH Master teaching team, with the support of lecturers and professional partners.</p>
+                </section>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-site-map">
+        <section class="page article">
+            <div class="hero"><h2><span data-lang="fr">Plan du site</span><span data-lang="en">Site map</span></h2></div>
+            <div class="section">
+                <ul data-lang="fr"><li><a href="#/">Accueil</a></li><li><a href="#/repertoire">Répertoire</a></li><li><a href="#/soumettre">Soumettre une technologie</a></li><li><a href="#/contact">Contact</a></li><li><a href="#/a-propos">À propos</a></li></ul>
+                <ul data-lang="en"><li><a href="#/">Home</a></li><li><a href="#/repertoire">Directory</a></li><li><a href="#/soumettre">Submit a technology</a></li><li><a href="#/contact">Contact</a></li><li><a href="#/a-propos">About</a></li></ul>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-legal">
+        <section class="page article">
+            <div class="hero"><h2><span data-lang="fr">Mentions légales</span><span data-lang="en">Legal notice</span></h2></div>
+            <div class="section">
+                <div data-lang="en">
+                    <p class="meta">LIBTECH · Directory of assistive technologies</p>
+                    <p>Website: <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a></p>
+                    <h2>Publisher</h2><p>This site is published as part of the LIBTECH project, whose objective is to list and promote technologies and services that support inclusion and digital accessibility.</p>
+                    <div class="legal-card"><p><strong>Publisher:</strong> LIBTECH</p><p><strong>Publication manager:</strong> Maël JEREZ</p><p><strong>Postal address:</strong> 351 Cours de la Libération, 33400 Talence, France<br><strong>E-mail:</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a></p></div>
+                    <h2>Hosting</h2><p>The site is hosted by CREMI, the IT resources center of the University of Bordeaux.</p>
+                    <div class="legal-card"><p><strong>Host:</strong> CREMI — Université de Bordeaux</p><p><strong>Website:</strong> <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a></p><p><strong>Postal address:</strong> 351 Cours de la Libération, 33400 Talence, France</p></div>
+                    <h2>Liability</h2><p>The information on this site is provided for information purposes only. Despite the care taken in updating it, some data may contain errors or be incomplete. The site may contain links to other resources whose content we do not control.</p>
+                    <h2>Accessibility</h2><p>LIBTECH is engaged in a process aimed at promoting digital accessibility. To report a difficulty or suggest an improvement, please write to <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                </div>
+                <div data-lang="fr">
+                    <p class="meta">LIBTECH · Répertoire des technologies accessibles</p>
+                    <p>Adresse du site : <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a></p>
+                    <h2>Éditeur du site</h2><p>Ce site est édité dans le cadre du projet LIBTECH, ayant pour objectif de recenser et valoriser des technologies et services favorisant l’inclusion et l’accessibilité numérique.</p>
+                    <div class="legal-card"><p><strong>Éditeur :</strong> LIBTECH</p><p><strong>Responsable de publication :</strong> Maël JEREZ</p><p><strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France<br><strong>E-mail :</strong> <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a></p></div>
+                    <h2>Hébergement</h2><p>Le site est hébergé par le CREMI, Centre de Ressources Informatiques de l’Université de Bordeaux.</p>
+                    <div class="legal-card"><p><strong>Hébergeur :</strong> CREMI — Université de Bordeaux</p><p><strong>Adresse du site :</strong> <a href="https://mael-jerez.emi.u-bordeaux.fr/libtech/" target="_blank" rel="noopener">https://mael-jerez.emi.u-bordeaux.fr/libtech/</a></p><p><strong>Adresse postale :</strong> 351 Cours de la Libération, 33400 Talence, France</p></div>
+                    <h2>Responsabilité</h2><p>Les informations présentes sur ce site sont fournies à titre indicatif. Malgré le soin apporté à leur mise à jour, certaines données peuvent contenir des erreurs ou ne pas être entièrement à jour. Le site peut contenir des liens vers d’autres ressources, dont nous ne contrôlons pas le contenu.</p>
+                    <h2>Accessibilité</h2><p>LIBTECH s’engage dans une démarche visant à promouvoir l’accessibilité numérique. Pour signaler une difficulté ou proposer une amélioration, vous pouvez nous écrire à <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                </div>
+                <hr><p class="meta">© LIBTECH</p>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-privacy">
+        <section class="page article">
+            <div class="hero"><h2><span data-lang="fr">Politiques de confidentialité</span><span data-lang="en">Privacy policy</span></h2></div>
+            <div class="section">
+                <div data-lang="en">
+                    <p class="meta">Last update: 2025</p>
+                    <p>This policy explains how the LIBTECH site collects, uses and protects information about its visitors. It aims to ensure transparency and compliance with data-protection regulations. It does not constitute legal advice, and we recommend seeking professional counsel for specific questions.</p>
+                    <p>LIBTECH is an academic project whose goal is to list inclusive technologies. You can browse the entire site without creating an account and without providing personal data.</p>
+                    <h2>Information collected</h2><p>The site does not collect personal data for advertising or commercial purposes. Technical information such as IP address, time of connection or pages visited may be logged automatically by the servers of the University of Bordeaux for security and operational purposes. LIBTECH does not actively exploit these data and does not use them for individual tracking.</p>
+                    <p>If you contact us by e-mail, we will receive your e-mail address and the content of your message.</p>
+                    <h2>Collection methods</h2><p>There is no registration system on the site. The only personal information that may be collected is that which you voluntarily send us, mainly via e-mail.</p>
+                    <h2>Storage and sharing of data</h2><p>The site is hosted by the IT resources center of the University of Bordeaux. Technical server information is managed in accordance with institutional practices.</p>
+                    <p>E-mails we receive are processed solely in order to respond. No data is sold, transferred or shared with third parties, except where legally required.</p>
+                    <h2>Communication with users</h2><p>We only contact you if you write to us. Exchanges are carried out exclusively by e-mail and only to answer your questions or comments.</p>
+                    <h2>Cookies</h2><p>No advertising cookies are used. Only technical cookies may be present to ensure the proper functioning of the site, without personalised tracking.</p>
+                    <h2>Your rights</h2><p>If you have sent us information by e-mail, you may request to consult, modify or delete it by writing to: <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                    <h2>Updates</h2><p>This policy may be updated at any time to reflect changes to the site or to legal obligations. The most recent version is always available on this page.</p>
+                    <hr><p class="meta">For any question about this privacy policy, please contact: <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                </div>
+                <div data-lang="fr">
+                    <p class="meta">Dernière mise à jour : 2025</p>
+                    <p>Ces politiques expliquent comment le site LIBTECH recueille, utilise et protège les informations concernant ses visiteurs. Elle vise à garantir la transparence et le respect de la réglementation en matière de protection des données personnelles. Elle ne constitue pas un conseil juridique et il est recommandé de solliciter un avis professionnel pour toute question spécifique.</p>
+                    <p>LIBTECH est un projet universitaire visant à répertorier des technologies inclusives. Vous pouvez consulter l’intégralité du site sans créer de compte et sans transmettre d’informations personnelles.</p>
+                    <h2>Informations recueillies</h2><p>Le site ne collecte aucune donnée personnelle à des fins publicitaires ou commerciales. Des informations techniques telles que l’adresse IP, l’heure de connexion ou la page consultée peuvent être enregistrées automatiquement par le serveur de l’Université de Bordeaux pour des raisons de sécurité et de fonctionnement. LIBTECH n’exploite pas activement ces données et ne les utilise pas à des fins d’analyse individuelle.</p>
+                    <p>Si vous nous contactez par e-mail, nous recevrons votre adresse e-mail et le contenu de votre message.</p>
+                    <h2>Méthodes de collecte</h2><p>Le site ne comporte pas de système d’inscription. Les seules informations personnelles pouvant être collectées sont celles que vous choisissez de nous transmettre volontairement, principalement par e-mail.</p>
+                    <h2>Stockage et partage des données</h2><p>Le site est hébergé par le Centre de Ressources Informatiques de l’Université de Bordeaux. Les informations techniques du serveur sont gérées conformément aux pratiques institutionnelles.</p>
+                    <p>Les e-mails reçus sont traités uniquement pour répondre aux messages. Aucune donnée n’est vendue, cédée ou partagée avec des tiers, sauf obligation légale.</p>
+                    <h2>Communication avec les utilisateurs</h2><p>Nous ne vous contactons que si vous nous écrivez. Les échanges se font exclusivement par e-mail et uniquement pour répondre à vos questions ou remarques.</p>
+                    <h2>Cookies</h2><p>Aucun cookie publicitaire n’est utilisé. Seuls des cookies techniques peuvent être présents afin d’assurer le bon fonctionnement du site, sans suivi personnalisé.</p>
+                    <h2>Vos droits</h2><p>Si vous nous avez transmis des informations par e-mail, vous pouvez demander leur consultation, modification ou suppression en nous écrivant à : <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                    <h2>Mises à jour</h2><p>Ces politiques peuvent être modifiées à tout moment afin de refléter l’évolution du site ou des obligations légales. La version la plus récente est toujours disponible sur cette page.</p>
+                    <hr><p class="meta">Pour toute question concernant ces politiques de confidentialité, contactez : <a href="mailto:promom2sc@gmail.com">promom2sc@gmail.com</a>.</p>
+                </div>
+            </div>
+        </section>
+    </template>
     <script src="app.js"></script>
 </body>
 
